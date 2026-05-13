@@ -1,11 +1,11 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --verde:         #2a6b1e;
-  --verde-dark:    #1a4712;
-  --verde-claro:   #eaf4e6;
-  --verde-mid:     #7ab86a;
-  --verde-accent:  #4a9e30;
+  --verde:         #1e5c28;
+  --verde-dark:    #133d1a;
+  --verde-claro:   #eaf6e4;
+  --verde-mid:     #85c44a;
+  --verde-accent:  #6ab820;
   --cinza-bg:      #f2f5f2;
   --cinza-card:    #ffffff;
   --cinza-borda:   #dde8da;
@@ -14,7 +14,7 @@
   --texto-medio:   #3d5438;
   --texto-suave:   #7a9474;
   --sombra:        0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
-  --sombra-header: 0 2px 12px rgba(26,71,18,0.4);
+  --sombra-header: 0 2px 12px rgba(19,61,26,0.45);
 }
 
 html { -webkit-text-size-adjust: 100%; }
@@ -51,7 +51,12 @@ header {
   gap: 10px;
 }
 
-.header-logo { font-size: 1.6rem; }
+.header-logo {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
 
 h1 {
   font-size: 1.15rem;
