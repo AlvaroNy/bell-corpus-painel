@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#6b2d8b">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Bell Corpus — Tabela de Preços</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="header-top">
+      <div class="header-marca">
+        <span class="header-logo">🌸</span>
+        <div>
+          <h1>Bell Corpus</h1>
+          <span class="header-sub">Cosméticos Atacadista</span>
+        </div>
+      </div>
+      <span class="tabela-data" id="tabela-data">Abr/2026</span>
+    </div>
+
+    <div class="search-wrap">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      </svg>
+      <input type="search" id="busca" placeholder="Buscar produto..." autocomplete="off" autocorrect="off" spellcheck="false">
+      <button class="clear-btn hidden" id="clear-busca" aria-label="Limpar">✕</button>
+    </div>
+
+    <div class="categorias-wrap">
+      <div class="categorias" id="categorias">
+        <button class="cat-btn active" data-cat="todas">Todas</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div id="contagem" class="contagem"></div>
+    <div id="loading" class="estado-msg">Carregando produtos...</div>
+    <div id="grid" class="grid"></div>
+    <div id="vazio" class="estado-msg hidden">Nenhum produto encontrado 🔍</div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
