@@ -232,6 +232,34 @@ function initBusca() {
 }
 
 // ─────────────────────────────────────────────────────────────
+// ABAS
+// ─────────────────────────────────────────────────────────────
+function initAbas() {
+  const abas = document.querySelectorAll('.aba-btn');
+  const viewTabela   = document.getElementById('view-tabela');
+  const viewCatalogo = document.getElementById('view-catalogo');
+  const headerTabela = document.getElementById('header-tabela');
+
+  abas.forEach(btn => {
+    btn.addEventListener('click', () => {
+      abas.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const aba = btn.dataset.aba;
+      if (aba === 'tabela') {
+        viewTabela.classList.remove('hidden');
+        viewCatalogo.classList.add('hidden');
+        headerTabela.classList.remove('hidden');
+      } else {
+        viewTabela.classList.add('hidden');
+        viewCatalogo.classList.remove('hidden');
+        headerTabela.classList.add('hidden');
+      }
+    });
+  });
+}
+
+// ─────────────────────────────────────────────────────────────
 // INIT
 // ─────────────────────────────────────────────────────────────
 async function init() {
@@ -252,6 +280,7 @@ async function init() {
 
   loading.classList.add('hidden');
   renderCategorias();
+  initAbas();
   renderGrid();
   initBusca();
 }

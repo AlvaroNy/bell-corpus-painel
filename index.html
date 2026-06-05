@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="theme-color" content="#6b2d8b">
+  <meta name="theme-color" content="#1e5c28">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="icon" type="image/png" href="logo.png">
@@ -25,27 +25,56 @@
       <span class="tabela-data" id="tabela-data">Abr/2026</span>
     </div>
 
-    <div class="search-wrap">
-      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-      </svg>
-      <input type="search" id="busca" placeholder="Buscar produto..." autocomplete="off" autocorrect="off" spellcheck="false">
-      <button class="clear-btn hidden" id="clear-busca" aria-label="Limpar">✕</button>
+    <!-- Abas principais -->
+    <div class="nav-abas">
+      <button class="aba-btn active" data-aba="tabela">💰 Tabela</button>
+      <button class="aba-btn" data-aba="catalogo">📖 Catálogo</button>
     </div>
 
-    <div class="categorias-wrap">
-      <div class="categorias" id="categorias">
-        <button class="cat-btn active" data-cat="todas">Todas</button>
+    <!-- Busca e categorias — só na aba tabela -->
+    <div id="header-tabela">
+      <div class="search-wrap">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input type="search" id="busca" placeholder="Buscar produto..." autocomplete="off" autocorrect="off" spellcheck="false">
+        <button class="clear-btn hidden" id="clear-busca" aria-label="Limpar">✕</button>
+      </div>
+      <div class="categorias-wrap">
+        <div class="categorias" id="categorias">
+          <button class="cat-btn active" data-cat="todas">Todas</button>
+        </div>
       </div>
     </div>
   </header>
 
-  <main>
+  <!-- ABA TABELA -->
+  <main id="view-tabela">
     <div id="contagem" class="contagem"></div>
     <div id="loading" class="estado-msg">Carregando produtos...</div>
     <div id="grid" class="grid"></div>
     <div id="vazio" class="estado-msg hidden">Nenhum produto encontrado 🔍</div>
   </main>
+
+  <!-- ABA CATÁLOGO -->
+  <div id="view-catalogo" class="hidden">
+    <div class="catalogo-wrap">
+      <div class="catalogo-topo">
+        <p class="catalogo-info">Catálogo Bell Corpus · 43 páginas</p>
+        <a href="catalogo.pdf" target="_blank" class="btn-abrir-pdf">⬆ Abrir em tela cheia</a>
+      </div>
+      <iframe
+        src="catalogo.pdf"
+        class="catalogo-iframe"
+        title="Catálogo Bell Corpus"
+        allowfullscreen
+      ></iframe>
+      <div class="catalogo-fallback">
+        <p>Seu navegador não exibiu o PDF embutido.</p>
+        <a href="catalogo.pdf" target="_blank" class="btn-abrir-pdf">📥 Abrir o catálogo</a>
+      </div>
+    </div>
+  </div>
 
   <script src="app.js"></script>
 </body>

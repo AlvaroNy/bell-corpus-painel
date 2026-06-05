@@ -145,6 +145,86 @@ h1 {
   -webkit-tap-highlight-color: transparent;
 }
 
+/* ── ABAS PRINCIPAIS ────────────────────────────── */
+.nav-abas {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.aba-btn {
+  flex: 1;
+  padding: 9px 12px;
+  border-radius: 22px;
+  border: 1.5px solid rgba(255,255,255,0.35);
+  background: transparent;
+  color: rgba(255,255,255,0.8);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.aba-btn.active {
+  background: white;
+  color: var(--verde-dark);
+  border-color: white;
+}
+
+/* ── CATÁLOGO VIEW ───────────────────────────────── */
+.catalogo-wrap {
+  display: flex;
+  flex-direction: column;
+  height: calc(100dvh - 120px);
+  padding: 12px 14px 0;
+}
+
+.catalogo-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.catalogo-info {
+  font-size: 0.78rem;
+  color: var(--texto-suave);
+}
+
+.btn-abrir-pdf {
+  display: inline-block;
+  padding: 7px 14px;
+  background: var(--verde);
+  color: white;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.catalogo-iframe {
+  flex: 1;
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  box-shadow: var(--sombra);
+  background: white;
+  min-height: 0;
+}
+
+.catalogo-fallback {
+  display: none;
+  text-align: center;
+  padding: 32px 16px;
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+  gap: 12px;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* ── CATEGORIAS ──────────────────────────────────── */
 .categorias-wrap {
   overflow: hidden;
