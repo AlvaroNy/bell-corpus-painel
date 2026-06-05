@@ -550,6 +550,7 @@ const OUTROS = [
     ]
   },
   { nome: 'Kit Rachaduras', cat: 'Saúde', fornecedores: [{ nome: 'Preço', preco: 7.61 }] },
+  { nome: 'Kit Cera 600g', cat: 'Depilação', fornecedores: [{ nome: 'Preço', preco: 21.67 }] },
   {
     nome: 'Gota Milagrosa · Naty Vida', cat: 'Saúde',
     fornecedores: [
