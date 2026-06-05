@@ -232,28 +232,159 @@ function initBusca() {
 }
 
 // ─────────────────────────────────────────────────────────────
+// CATÁLOGO — DADOS
+// ─────────────────────────────────────────────────────────────
+const CATALOGO = [
+  {codigo:"323", nome:"Kit Hidratação",                    tag:"3 peças",              desc:"Shampoo Hidratante + Máscara Hidratante + Defrizante. Leite Siliconado.",                                         cat:"hidratacao", vista:54.99, prazo:58.50},
+  {codigo:"322", nome:"Kit Hidratação com Escova",         tag:"3 peças + escova",     desc:"Kit Hidratação completo acompanhado de escova capilar.",                                                           cat:"hidratacao", vista:64.39, prazo:68.50},
+  {codigo:"305", nome:"Kit Liso Perfeito",                 tag:"3 peças · 1 litro",    desc:"Máscara Hidratante + Shampoo Reparador + Defrizante. 12 benefícios.",                                             cat:"liso",       vista:54.99, prazo:58.50},
+  {codigo:"320", nome:"Kit Liso Perfeito com Escova",      tag:"3 peças + escova",     desc:"Kit Liso Perfeito completo acompanhado de escova capilar.",                                                        cat:"liso",       vista:64.39, prazo:68.50},
+  {codigo:"315", nome:"Kit Liso Perfeito c/ Body Splash",  tag:"3 peças + body splash",desc:"Kit Liso Perfeito com Body Splash incluso.",                                                                       cat:"liso",       vista:62.50, prazo:66.49},
+  {codigo:"307", nome:"Kit Cachos Perfeitos",              tag:"3 peças · 1 litro",    desc:"Shampoo + Máscara + Ativador de Cachos. 10 benefícios.",                                                          cat:"cachos",     vista:54.99, prazo:58.50},
+  {codigo:"312", nome:"Kit Nutrição",                      tag:"3 peças · 1 litro",    desc:"Shampoo Fortalecedor + Máscara Fortalecedora + Defrizante. Pantenol, pró-vitaminas B5, queratina, arginina.",    cat:"nutricao",   vista:54.99, prazo:58.50},
+  {codigo:"298", nome:"Kit 3 Máscaras Cronograma 2kg",     tag:"3 potes · 2kg cada",   desc:"Pós Química + Restauração dos Fios + Nutrição Capilar.",                                                          cat:"nutricao",   vista:98.60, prazo:104.98},
+  {codigo:"83",  nome:"Moxil Turbo · Blend Pro A e B5",    tag:"tônico capilar",       desc:"Estimulante do crescimento de barba, cabelo e bigode.",                                                            cat:"crescimento",vista:46.90, prazo:49.90},
+  {codigo:"13",  nome:"Kit Óleo Argan",                    tag:"12 unidades · 60ml",   desc:"Argan Oil Repair — Reparador de Pontas.",                                                                          cat:"tratamento", vista:89.29, prazo:94.99},
+  {codigo:"281", nome:"Kit Paradox Prime",                 tag:"4 peças",              desc:"Hair Nutrition System. Shampoo + Máscara + Defrizante + Spray. Rejuvenescimento capilar.",                        cat:"tratamento", vista:58.99, prazo:62.75},
+  {codigo:"290", nome:"Kit Cronograma Capilar 4 Passos",   tag:"4 × 500ml",            desc:"Shampoo + Reconstrução + Hidratação + Nutrição Capilar.",                                                          cat:"nutricao",   vista:46.95, prazo:49.95},
+  {codigo:"292", nome:"Kit Perfume Corporal c/6",          tag:"6 unidades · 100ml",   desc:"Paradox · Smooth Million · Smell Scandal · Urban Silver · Sweet Girl.",                                           cat:"perfume",    vista:101.46,prazo:107.94},
+  {codigo:"284", nome:"Monovin Pro A e B5 · 4 Passos",     tag:"4 peças",              desc:"Máscara Hidratante + Shampoo Nutritivo + Leave-in + Moxil Turbo. Vitaminas A e B5.",                             cat:"tratamento", vista:62.50, prazo:66.49},
+  {codigo:"79",  nome:"Monovin Pro A e B5 · 3 Passos",     tag:"3 peças",              desc:"Máscara Hidratante + Shampoo Nutritivo + Moxil Turbo. Vitaminas A e B5.",                                        cat:"tratamento", vista:44.98, prazo:47.85},
+  {codigo:"265", nome:"Perfume Capilar · Kit 10un",        tag:"10 unidades · 5 fragrâncias",desc:"Cabelos cheirosos, leves e marcantes. 5 fragrâncias diferentes.",                                           cat:"perfume",    vista:79.90, prazo:85.00},
+  {codigo:"269", nome:"Sebo de Carneiro c/ Ureia · Kit 6", tag:"6 unidades · 250ml",   desc:"Creme para pés, mãos e cotovelos. Previne aspereza e ressecamento.",                                             cat:"outros",     vista:46.90, prazo:49.90},
+  {codigo:"257", nome:"Banho de Colágeno",                 tag:"3 peças",              desc:"Shampoo Reparador + SOS Reconstrutor Instantâneo + Máscara Reconstrutora. Resultado desde a 1ª lavagem.",        cat:"tratamento", vista:51.98, prazo:55.30},
+  {codigo:"260", nome:"Kit Pistache",                      tag:"3 peças · 1 litro",    desc:"Máscara Reconstrutora + Shampoo Reparador + Tônico. Reduz queda, fortalece e garante brilho.",                  cat:"tratamento", vista:44.98, prazo:47.85},
+  {codigo:"264", nome:"Sweet Life · Linha Completa",       tag:"3 peças",              desc:"Reparação pós colorações, progressivas e processos químicos. Cabelos com frizz e opacos.",                        cat:"tratamento", vista:58.99, prazo:62.75},
+  {codigo:"262", nome:"Lumière Blond Matizador",           tag:"3 peças · 500ml",      desc:"Matiza os tons loiro e elimina o alaranjado. Pós-química.",                                                       cat:"tratamento", vista:34.68, prazo:36.90},
+  {codigo:"231", nome:"Bio Therapy Cauter",                tag:"3 peças",              desc:"Máscara + Spray Keratin + Shampoo Purificante. Repara, devolve brilho e protege do calor.",                      cat:"tratamento", vista:51.98, prazo:55.30},
+  {codigo:"244", nome:"Kit Body Splash · 6 unidades",      tag:"6 un · 3 fragrâncias", desc:"Smell Scandal + Smooth Million + Sweet Girl. 200ml cada.",                                                        cat:"perfume",    vista:104.90,prazo:111.60},
+  {codigo:"105", nome:"Cresce Mais · Kit 1 Litro",         tag:"3 peças · 1 litro",    desc:"Máscara Hidratante + Shampoo Nutritivo + Tônico Capilar. Blend Vit A e B5.",                                    cat:"crescimento",vista:44.98, prazo:47.85},
+  {codigo:"KIT4",nome:"Cresce Mais · Kit 500ml",           tag:"3 peças · 500ml",      desc:"Shampoo Nutritivo + Máscara Hidratante + Tônico Capilar. 500ml.",                                               cat:"crescimento",vista:29.99, prazo:31.90},
+  {codigo:"107", nome:"Cresce Mais Cachos · 1 Litro",      tag:"3 peças · linha vegana",desc:"Máscara + Shampoo Linha Vegana + Ativador. Cachos definidos e modelados.",                                      cat:"cachos",     vista:44.98, prazo:47.85},
+  {codigo:"02",  nome:"Cresce Mais Cachos · 500ml",        tag:"2 peças · linha vegana",desc:"Shampoo + Ativador Linha Vegana. 500ml.",                                                                        cat:"cachos",     vista:29.99, prazo:31.90},
+  {codigo:"113", nome:"Kit Tônico Cresce Mais · 6un",      tag:"6 unidades · 100ml",   desc:"Tônico Capilar A, B5 e D-Pantenol. Estimula crescimento intenso de fios, barba e bigode.",                      cat:"crescimento",vista:46.90, prazo:49.90},
+  {codigo:"3",   nome:"Kit Banana e Mel",                  tag:"2 peças · 1 litro",    desc:"Máscara de Hidratação + Shampoo Hidratante. Hidratação profunda, nutrição intensa.",                             cat:"hidratacao", vista:33.82, prazo:35.98},
+  {codigo:"11",  nome:"Kit Fruit Therapy Coco",            tag:"2 peças · 1 litro",    desc:"Máscara + Shampoo Umectante. Óleo de coco, manteiga de karité e aminoácidos.",                                  cat:"hidratacao", vista:33.82, prazo:35.98},
+  {codigo:"16",  nome:"Kit Fruit Therapy Abacate",         tag:"2 peças · 1 litro",    desc:"Máscara + Shampoo Hidratante. Nutrição intensa, elimina frizz, extrato de abacate.",                            cat:"hidratacao", vista:33.82, prazo:35.98},
+  {codigo:"27",  nome:"Kit Babosa · 2 Passos",             tag:"2 peças · 1 litro",    desc:"Máscara + Shampoo Restauração Profunda. Ideal para cabelos danificados e quebradiços.",                          cat:"hidratacao", vista:33.82, prazo:35.98},
+  {codigo:"237", nome:"Kit Babosa · 3 Passos",             tag:"3 peças",              desc:"Máscara + Shampoo + Finalizador. Efeito restaurador e hidratante.",                                               cat:"hidratacao", vista:44.98, prazo:47.85},
+  {codigo:"26",  nome:"Kit Bamboo",                        tag:"2 peças · 1 litro",    desc:"Shampoo Nutritivo + Máscara Reconstrutora. Silicone e extrato de bambu.",                                        cat:"hidratacao", vista:33.82, prazo:35.98},
+  {codigo:"206", nome:"Kit Uso Obrigatório",               tag:"3 peças · 1 litro",    desc:"Shampoo Nutrition + Máscara Restore + Magic Repair Finish. Nutrição intensa e proteção térmica.",               cat:"tratamento", vista:44.98, prazo:47.85},
+  {codigo:"117", nome:"Plástica dos Fios",                 tag:"3 peças",              desc:"Shampoo + Máscara SOS + Óleo Bifásico. Redução de volume, realinhamento capilar.",                               cat:"liso",       vista:47.93, prazo:50.99},
+  {codigo:"119", nome:"Desmaia Cabelo",                    tag:"3 peças",              desc:"Máscara Reconstrutora + Shampoo Reconstrutora + Defrizante. Controla frizz, proteção térmica.",                  cat:"tratamento", vista:47.93, prazo:50.99},
+  {codigo:"151", nome:"Banho de Verniz",                   tag:"3 peças",              desc:"Shampoo + Máscara Brilho Intenso + Finish Touch. Óleo de Goji Berry, ação antioxidante.",                       cat:"tratamento", vista:47.93, prazo:50.99},
+  {codigo:"142", nome:"Kit Baba de Quiabo",                tag:"3 peças",              desc:"Máscara + Shampoo + Finalizador Bifásico. Hidratação intensa, brilho e maciez.",                                 cat:"tratamento", vista:47.93, prazo:50.99},
+  {codigo:"10",  nome:"Kit Botox Mais Liso",               tag:"2 peças · 1 litro",    desc:"Botox Shampoo + Botox Reestruturador. 0% formol. Efeito liso duradouro.",                                        cat:"liso",       vista:53.49, prazo:56.90},
+  {codigo:"6",   nome:"Kit Progressiva Evolux Peônia",     tag:"2 peças · 1 litro",    desc:"Shampoo Nutritivo + Amino Reestruturador. Sem formol, reduz volume com brilho.",                                 cat:"liso",       vista:58.75, prazo:62.50},
+];
+
+// ─────────────────────────────────────────────────────────────
+// CATÁLOGO — ESTADO E RENDER
+// ─────────────────────────────────────────────────────────────
+let catFiltro = 'todos';
+let catBusca  = '';
+
+function cardCatHtml(p) {
+  return `
+    <div class="card-cat">
+      <div class="card-cat-header">
+        <div class="card-cat-codigo">Cód. ${p.codigo}</div>
+        <div class="card-cat-nome">${p.nome}</div>
+        <span class="card-cat-tag">${p.tag}</span>
+      </div>
+      <div class="card-cat-body">
+        <div class="card-cat-desc">${p.desc}</div>
+        <div class="card-cat-precos">
+          <div class="preco-bloco">
+            <div class="preco-bloco-label">À vista</div>
+            <div class="preco-bloco-val">${R$(p.vista)}</div>
+          </div>
+          <div class="preco-bloco prazo">
+            <div class="preco-bloco-label">A prazo</div>
+            <div class="preco-bloco-val">${R$(p.prazo)}</div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+}
+
+function renderCatalogo() {
+  const grid    = document.getElementById('grid-cat');
+  const vazio   = document.getElementById('vazio-cat');
+  const contagem = document.getElementById('contagem-cat');
+  const termo   = catBusca.toLowerCase();
+
+  const filtrados = CATALOGO.filter(p =>
+    (catFiltro === 'todos' || p.cat === catFiltro) &&
+    (!termo || p.nome.toLowerCase().includes(termo) ||
+               p.desc.toLowerCase().includes(termo) ||
+               p.codigo.toLowerCase().includes(termo))
+  );
+
+  if (!filtrados.length) {
+    grid.innerHTML = '';
+    vazio.classList.remove('hidden');
+    contagem.textContent = '';
+    return;
+  }
+  vazio.classList.add('hidden');
+  contagem.textContent = `${filtrados.length} produto${filtrados.length !== 1 ? 's' : ''}`;
+  grid.innerHTML = filtrados.map(cardCatHtml).join('');
+}
+
+function initCatalogo() {
+  // Filtros
+  document.getElementById('filtros-cat').querySelectorAll('.cat-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.getElementById('filtros-cat').querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      catFiltro = btn.dataset.cat;
+      renderCatalogo();
+    });
+  });
+
+  // Busca
+  const input    = document.getElementById('busca-cat');
+  const clearBtn = document.getElementById('clear-busca-cat');
+  input.addEventListener('input', () => {
+    catBusca = input.value;
+    clearBtn.classList.toggle('hidden', !catBusca);
+    renderCatalogo();
+  });
+  clearBtn.addEventListener('click', () => {
+    input.value = '';
+    catBusca = '';
+    clearBtn.classList.add('hidden');
+    input.focus();
+    renderCatalogo();
+  });
+}
+
+// ─────────────────────────────────────────────────────────────
 // ABAS
 // ─────────────────────────────────────────────────────────────
 function initAbas() {
   const abas = document.querySelectorAll('.aba-btn');
-  const viewTabela   = document.getElementById('view-tabela');
-  const viewCatalogo = document.getElementById('view-catalogo');
-  const headerTabela = document.getElementById('header-tabela');
+  const viewTabela    = document.getElementById('view-tabela');
+  const viewCatalogo  = document.getElementById('view-catalogo');
+  const headerTabela  = document.getElementById('header-tabela');
+  const headerCatalogo= document.getElementById('header-catalogo');
 
   abas.forEach(btn => {
     btn.addEventListener('click', () => {
       abas.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-
       const aba = btn.dataset.aba;
       if (aba === 'tabela') {
         viewTabela.classList.remove('hidden');
         viewCatalogo.classList.add('hidden');
         headerTabela.classList.remove('hidden');
+        headerCatalogo.classList.add('hidden');
       } else {
         viewTabela.classList.add('hidden');
         viewCatalogo.classList.remove('hidden');
         headerTabela.classList.add('hidden');
+        headerCatalogo.classList.remove('hidden');
       }
     });
   });
@@ -280,9 +411,11 @@ async function init() {
 
   loading.classList.add('hidden');
   renderCategorias();
-  initAbas();
   renderGrid();
   initBusca();
+  renderCatalogo();
+  initCatalogo();
+  initAbas();
 }
 
 init();

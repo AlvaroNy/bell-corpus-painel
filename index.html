@@ -22,7 +22,7 @@
           <span class="header-sub">Cosméticos Atacadista</span>
         </div>
       </div>
-      <span class="tabela-data" id="tabela-data">Abr/2026</span>
+      <span class="tabela-data">Abr/2026</span>
     </div>
 
     <!-- Abas principais -->
@@ -31,7 +31,7 @@
       <button class="aba-btn" data-aba="catalogo">📖 Catálogo</button>
     </div>
 
-    <!-- Busca e categorias — só na aba tabela -->
+    <!-- Controles da aba TABELA -->
     <div id="header-tabela">
       <div class="search-wrap">
         <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -46,9 +46,33 @@
         </div>
       </div>
     </div>
+
+    <!-- Controles da aba CATÁLOGO -->
+    <div id="header-catalogo" class="hidden">
+      <div class="search-wrap">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input type="search" id="busca-cat" placeholder="Buscar no catálogo..." autocomplete="off" autocorrect="off" spellcheck="false">
+        <button class="clear-btn hidden" id="clear-busca-cat" aria-label="Limpar">✕</button>
+      </div>
+      <div class="categorias-wrap">
+        <div class="categorias" id="filtros-cat">
+          <button class="cat-btn active" data-cat="todos">Todos</button>
+          <button class="cat-btn" data-cat="hidratacao">Hidratação</button>
+          <button class="cat-btn" data-cat="liso">Liso</button>
+          <button class="cat-btn" data-cat="cachos">Cachos</button>
+          <button class="cat-btn" data-cat="nutricao">Nutrição</button>
+          <button class="cat-btn" data-cat="crescimento">Crescimento</button>
+          <button class="cat-btn" data-cat="tratamento">Tratamento</button>
+          <button class="cat-btn" data-cat="perfume">Perfume</button>
+          <button class="cat-btn" data-cat="outros">Outros</button>
+        </div>
+      </div>
+    </div>
   </header>
 
-  <!-- ABA TABELA -->
+  <!-- VIEW TABELA -->
   <main id="view-tabela">
     <div id="contagem" class="contagem"></div>
     <div id="loading" class="estado-msg">Carregando produtos...</div>
@@ -56,25 +80,12 @@
     <div id="vazio" class="estado-msg hidden">Nenhum produto encontrado 🔍</div>
   </main>
 
-  <!-- ABA CATÁLOGO -->
-  <div id="view-catalogo" class="hidden">
-    <div class="catalogo-wrap">
-      <div class="catalogo-topo">
-        <p class="catalogo-info">Catálogo Bell Corpus · 43 páginas</p>
-        <a href="catalogo.pdf" target="_blank" class="btn-abrir-pdf">⬆ Abrir em tela cheia</a>
-      </div>
-      <iframe
-        src="catalogo.pdf"
-        class="catalogo-iframe"
-        title="Catálogo Bell Corpus"
-        allowfullscreen
-      ></iframe>
-      <div class="catalogo-fallback">
-        <p>Seu navegador não exibiu o PDF embutido.</p>
-        <a href="catalogo.pdf" target="_blank" class="btn-abrir-pdf">📥 Abrir o catálogo</a>
-      </div>
-    </div>
-  </div>
+  <!-- VIEW CATÁLOGO -->
+  <main id="view-catalogo" class="hidden">
+    <div id="contagem-cat" class="contagem"></div>
+    <div id="grid-cat" class="grid"></div>
+    <div id="vazio-cat" class="estado-msg hidden">Nenhum produto encontrado 🔍</div>
+  </main>
 
   <script src="app.js"></script>
 </body>
