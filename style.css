@@ -110,7 +110,7 @@ h1 {
   pointer-events: none;
 }
 
-#busca, #busca-cat {
+#busca, #busca-cat, #busca-outros {
   width: 100%;
   padding: 11px 40px 11px 38px;
   border-radius: 26px;
@@ -123,9 +123,10 @@ h1 {
   -webkit-tap-highlight-color: transparent;
 }
 
-#busca::placeholder, #busca-cat::placeholder { color: #aaa; }
+#busca::placeholder, #busca-cat::placeholder, #busca-outros::placeholder { color: #aaa; }
 #busca::-webkit-search-cancel-button,
-#busca-cat::-webkit-search-cancel-button { display: none; }
+#busca-cat::-webkit-search-cancel-button,
+#busca-outros::-webkit-search-cancel-button { display: none; }
 
 .clear-btn {
   position: absolute;
