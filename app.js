@@ -516,6 +516,57 @@ function initDepile() {
 }
 
 // ─────────────────────────────────────────────────────────────
+// COPAG — DADOS
+// ─────────────────────────────────────────────────────────────
+const COPAG = [
+  { nome: 'Blister Unitário Pokémon ME03 Equilíbrio Perfeito',          cat: 'Pokémon', fornecedores: [{ nome: 'Custo', preco: 8.26   }] },
+  { nome: 'Box Display Pokémon Mega Evolução E03 Equilíbrio Perfeito',   cat: 'Pokémon', fornecedores: [{ nome: 'Custo', preco: 297.22 }] },
+];
+
+// ─────────────────────────────────────────────────────────────
+// COPAG — RENDER
+// ─────────────────────────────────────────────────────────────
+let copagBusca = '';
+
+function renderCopag() {
+  const grid     = document.getElementById('grid-copag');
+  const vazio    = document.getElementById('vazio-copag');
+  const contagem = document.getElementById('contagem-copag');
+  const termo    = copagBusca.toLowerCase();
+
+  const filtrados = COPAG.filter(p =>
+    !termo || p.nome.toLowerCase().includes(termo) || p.cat.toLowerCase().includes(termo)
+  );
+
+  if (!filtrados.length) {
+    grid.innerHTML = '';
+    vazio.classList.remove('hidden');
+    contagem.textContent = '';
+    return;
+  }
+  vazio.classList.add('hidden');
+  contagem.textContent = `${filtrados.length} produto${filtrados.length !== 1 ? 's' : ''}`;
+  grid.innerHTML = filtrados.map(cardOutrosHtml).join('');
+}
+
+function initCopag() {
+  const input    = document.getElementById('busca-copag');
+  const clearBtn = document.getElementById('clear-busca-copag');
+  input.addEventListener('input', () => {
+    copagBusca = input.value;
+    clearBtn.classList.toggle('hidden', !copagBusca);
+    renderCopag();
+  });
+  clearBtn.addEventListener('click', () => {
+    input.value = '';
+    copagBusca = '';
+    clearBtn.classList.add('hidden');
+    input.focus();
+    renderCopag();
+  });
+}
+
+// ─────────────────────────────────────────────────────────────
 // PANINI — DADOS
 // ─────────────────────────────────────────────────────────────
 const PANINI = [
@@ -687,6 +738,7 @@ const MARCAS = {
   bellcorpus: { titulo: 'Bell Corpus', sub: 'Cosméticos Atacadista' },
   glamour:    { titulo: 'Glamour',     sub: 'Distribuidora'          },
   depile:     { titulo: 'Depile Plus', sub: 'Cosméticos'             },
+  copag:      { titulo: 'Copag',       sub: 'Cards e Jogos'          },
   panini:     { titulo: 'Panini',      sub: 'Álbuns e Figurinhas'    },
   outros:     { titulo: 'Outros',      sub: 'Produtos'               },
 };
@@ -698,6 +750,7 @@ function initAbas() {
     bellcorpus: document.getElementById('view-bellcorpus'),
     glamour:    document.getElementById('view-glamour'),
     depile:     document.getElementById('view-depile'),
+    copag:      document.getElementById('view-copag'),
     panini:     document.getElementById('view-panini'),
     outros:     document.getElementById('view-outros'),
   };
@@ -705,6 +758,7 @@ function initAbas() {
     bellcorpus: document.getElementById('header-bellcorpus'),
     glamour:    document.getElementById('header-glamour'),
     depile:     document.getElementById('header-depile'),
+    copag:      document.getElementById('header-copag'),
     panini:     document.getElementById('header-panini'),
     outros:     document.getElementById('header-outros'),
   };
@@ -756,6 +810,8 @@ async function init() {
   initCatalogo();
   renderDepile();
   initDepile();
+  renderCopag();
+  initCopag();
   renderPanini();
   initPanini();
   renderOutros();

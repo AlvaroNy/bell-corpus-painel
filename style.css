@@ -110,7 +110,7 @@ h1 {
   pointer-events: none;
 }
 
-#busca, #busca-cat, #busca-depile, #busca-panini, #busca-outros {
+#busca, #busca-cat, #busca-depile, #busca-panini, #busca-copag, #busca-outros {
   width: 100%;
   padding: 11px 40px 11px 38px;
   border-radius: 26px;
@@ -123,11 +123,12 @@ h1 {
   -webkit-tap-highlight-color: transparent;
 }
 
-#busca::placeholder, #busca-cat::placeholder, #busca-depile::placeholder, #busca-panini::placeholder, #busca-outros::placeholder { color: #aaa; }
+#busca::placeholder, #busca-cat::placeholder, #busca-depile::placeholder, #busca-panini::placeholder, #busca-copag::placeholder, #busca-outros::placeholder { color: #aaa; }
 #busca::-webkit-search-cancel-button,
 #busca-cat::-webkit-search-cancel-button,
 #busca-depile::-webkit-search-cancel-button,
 #busca-panini::-webkit-search-cancel-button,
+#busca-copag::-webkit-search-cancel-button,
 #busca-outros::-webkit-search-cancel-button { display: none; }
 
 .clear-btn {
@@ -482,6 +483,39 @@ main { padding: 14px 14px 0; }
   color: var(--texto-suave);
   font-style: italic;
 }
+
+/* ── CARD CONTATO FORNECEDOR ─────────────────────── */
+.card-contato {
+  background: var(--cinza-card);
+  border-radius: 16px;
+  padding: 14px 16px;
+  margin: 14px 14px 4px;
+  box-shadow: var(--sombra);
+  border-left: 4px solid var(--verde);
+}
+
+.card-contato-nome {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--texto);
+  margin-bottom: 8px;
+}
+
+.card-contato-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--verde-dark);
+  text-decoration: none;
+  padding: 4px 0;
+  font-weight: 500;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.card-contato-item:active { opacity: 0.7; }
+
+.contato-icon { font-size: 0.9rem; }
 
 /* ── CARD DEPILE PLUS ────────────────────────────── */
 .card-depile {
