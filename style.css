@@ -110,7 +110,7 @@ h1 {
   pointer-events: none;
 }
 
-#busca, #busca-cat, #busca-outros {
+#busca, #busca-cat, #busca-depile, #busca-outros {
   width: 100%;
   padding: 11px 40px 11px 38px;
   border-radius: 26px;
@@ -123,9 +123,10 @@ h1 {
   -webkit-tap-highlight-color: transparent;
 }
 
-#busca::placeholder, #busca-cat::placeholder, #busca-outros::placeholder { color: #aaa; }
+#busca::placeholder, #busca-cat::placeholder, #busca-depile::placeholder, #busca-outros::placeholder { color: #aaa; }
 #busca::-webkit-search-cancel-button,
 #busca-cat::-webkit-search-cancel-button,
+#busca-depile::-webkit-search-cancel-button,
 #busca-outros::-webkit-search-cancel-button { display: none; }
 
 .clear-btn {
@@ -152,11 +153,16 @@ h1 {
   display: flex;
   gap: 6px;
   margin-bottom: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 2px;
 }
+.nav-abas::-webkit-scrollbar { display: none; }
 
 .aba-btn {
-  flex: 1;
-  padding: 8px 8px;
+  flex-shrink: 0;
+  padding: 8px 14px;
   border-radius: 22px;
   border: 1.5px solid rgba(255,255,255,0.35);
   background: transparent;
@@ -474,6 +480,63 @@ main { padding: 14px 14px 0; }
   font-weight: 500;
   color: var(--texto-suave);
   font-style: italic;
+}
+
+/* ── CARD DEPILE PLUS ────────────────────────────── */
+.card-depile {
+  background: var(--cinza-card);
+  border-radius: 16px;
+  padding: 12px 14px;
+  box-shadow: var(--sombra);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.card-depile-left { flex: 1; min-width: 0; }
+
+.card-depile-ref {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+  margin-bottom: 2px;
+}
+
+.card-depile-nome {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--texto);
+  line-height: 1.3;
+}
+
+.card-depile-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.card-depile-cat {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--verde-dark);
+  background: var(--verde-claro);
+  padding: 2px 7px;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+
+.card-depile-preco {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--verde);
+  font-variant-numeric: tabular-nums;
 }
 
 /* ── CARD OUTROS ─────────────────────────────────── */

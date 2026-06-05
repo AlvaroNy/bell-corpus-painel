@@ -361,6 +361,160 @@ function initCatalogo() {
 }
 
 // ─────────────────────────────────────────────────────────────
+// DEPILE PLUS — DADOS
+// ─────────────────────────────────────────────────────────────
+const DEPILE = [
+  // Cera 600g (cx/24)
+  { ref:'8',   nome:'Mel 600g',            cat:'cera600', catNome:'Cera 600g',  preco:7.65 },
+  { ref:'7',   nome:'Camomila 600g',        cat:'cera600', catNome:'Cera 600g',  preco:7.65 },
+  { ref:'9',   nome:'Algas Marinhas 600g',  cat:'cera600', catNome:'Cera 600g',  preco:7.65 },
+  { ref:'11',  nome:'Hortelã 600g',         cat:'cera600', catNome:'Cera 600g',  preco:7.65 },
+  { ref:'10',  nome:'Extra Menta 600g',     cat:'cera600', catNome:'Cera 600g',  preco:7.65 },
+  { ref:'21',  nome:'Maracujá 600g',        cat:'cera600', catNome:'Cera 600g',  preco:7.65 },
+  { ref:'22',  nome:'Argan 600g',           cat:'cera600', catNome:'Cera 600g',  preco:7.65 },
+  { ref:'24',  nome:'Cravo 600g',           cat:'cera600', catNome:'Cera 600g',  preco:7.65 },
+  { ref:'992', nome:'Rosa Mosqueta 600g',   cat:'cera600', catNome:'Cera 600g',  preco:7.65 },
+  { ref:'991', nome:'Diamante Negro 600g',  cat:'cera600', catNome:'Cera 600g',  preco:7.65 },
+  { ref:'993', nome:'Power Men 600g',       cat:'cera600', catNome:'Cera 600g',  preco:7.65 },
+  { ref:'42',  nome:'Chocolate 600g',       cat:'cera600', catNome:'Cera 600g',  preco:7.65 },
+  { ref:'23',  nome:'Canela 600g',          cat:'cera600', catNome:'Cera 600g',  preco:7.65 },
+  // Cera 290g (cx/24)
+  { ref:'1',   nome:'Mel 290g',             cat:'cera290', catNome:'Cera 290g',  preco:4.32 },
+  { ref:'2',   nome:'Camomila 290g',        cat:'cera290', catNome:'Cera 290g',  preco:4.32 },
+  { ref:'5',   nome:'Algas Marinhas 290g',  cat:'cera290', catNome:'Cera 290g',  preco:4.32 },
+  { ref:'3',   nome:'Hortelã 290g',         cat:'cera290', catNome:'Cera 290g',  preco:4.32 },
+  { ref:'-',   nome:'Rosa Mosqueta 290g',   cat:'cera290', catNome:'Cera 290g',  preco:4.32 },
+  { ref:'4',   nome:'Extra Menta 290g',     cat:'cera290', catNome:'Cera 290g',  preco:4.32 },
+  { ref:'6',   nome:'Canela 290g',          cat:'cera290', catNome:'Cera 290g',  preco:4.32 },
+  { ref:'25',  nome:'Cravo 290g',           cat:'cera290', catNome:'Cera 290g',  preco:4.32 },
+  { ref:'41',  nome:'Chocolate 290g',       cat:'cera290', catNome:'Cera 290g',  preco:4.32 },
+  { ref:'994', nome:'Power Men 290g',       cat:'cera290', catNome:'Cera 290g',  preco:4.32 },
+  { ref:'27',  nome:'Argan 290g',           cat:'cera290', catNome:'Cera 290g',  preco:4.32 },
+  { ref:'26',  nome:'Maracujá 290g',        cat:'cera290', catNome:'Cera 290g',  preco:4.32 },
+  // Roll-on 140g (cx/24)
+  { ref:'13',  nome:'Roll-on Mel 140g',           cat:'rollon', catNome:'Roll-on 140g', preco:3.98 },
+  { ref:'12',  nome:'Roll-on Camomila 140g',       cat:'rollon', catNome:'Roll-on 140g', preco:3.98 },
+  { ref:'14',  nome:'Roll-on Algas Marinhas 140g', cat:'rollon', catNome:'Roll-on 140g', preco:3.98 },
+  { ref:'16',  nome:'Roll-on Hortelã 140g',        cat:'rollon', catNome:'Roll-on 140g', preco:3.98 },
+  { ref:'15',  nome:'Roll-on Extra Menta 140g',    cat:'rollon', catNome:'Roll-on 140g', preco:3.98 },
+  { ref:'19',  nome:'Roll-on For Men 140g',         cat:'rollon', catNome:'Roll-on 140g', preco:3.98 },
+  { ref:'30',  nome:'Roll-on Cravo 140g',           cat:'rollon', catNome:'Roll-on 140g', preco:3.98 },
+  { ref:'31',  nome:'Roll-on Canela 140g',          cat:'rollon', catNome:'Roll-on 140g', preco:3.98 },
+  { ref:'28',  nome:'Roll-on Maracujá 140g',        cat:'rollon', catNome:'Roll-on 140g', preco:3.98 },
+  { ref:'29',  nome:'Roll-on Argan 140g',           cat:'rollon', catNome:'Roll-on 140g', preco:3.98 },
+  // Cera em Barra
+  { ref:'89',   nome:'Cera em Barra Negra 1Kg',          cat:'barra', catNome:'Cera em Barra', preco:29.00 },
+  { ref:'34',   nome:'Cera em Barra Mel 1Kg',            cat:'barra', catNome:'Cera em Barra', preco:29.00 },
+  { ref:'88',   nome:'Cera em Barra Algas Marinhas 1Kg', cat:'barra', catNome:'Cera em Barra', preco:29.00 },
+  { ref:'92',   nome:'Cera em Barra Negra 500g',         cat:'barra', catNome:'Cera em Barra', preco:17.00 },
+  { ref:'90',   nome:'Cera em Barra Mel 500g',           cat:'barra', catNome:'Cera em Barra', preco:17.00 },
+  { ref:'91',   nome:'Cera em Barra Algas Marinhas 500g',cat:'barra', catNome:'Cera em Barra', preco:17.00 },
+  { ref:'4774', nome:'Cera em Barra Negra 250g',         cat:'barra', catNome:'Cera em Barra', preco:11.00 },
+  { ref:'4772', nome:'Cera em Barra Mel 250g',           cat:'barra', catNome:'Cera em Barra', preco:11.00 },
+  { ref:'4773', nome:'Cera em Barra Algas Marinhas 250g',cat:'barra', catNome:'Cera em Barra', preco:11.00 },
+  // Papel Depilatório
+  { ref:'17', nome:'Papel Depilatório c/20 TNT',      cat:'papel', catNome:'Papel Dep.',  preco:2.48  },
+  { ref:'18', nome:'Papel Depilatório c/50 TNT',      cat:'papel', catNome:'Papel Dep.',  preco:6.00  },
+  { ref:'44', nome:'Papel Depilatório c/100 TNT',     cat:'papel', catNome:'Papel Dep.',  preco:11.64 },
+  { ref:'43', nome:'Papel Depilatório Rolo 50m TNT',  cat:'papel', catNome:'Papel Dep.',  preco:15.98 },
+  // Espátula
+  { ref:'33',  nome:'Espátula de Madeira c/15',   cat:'espatula', catNome:'Espátula', preco:2.38 },
+  { ref:'105', nome:'Espátula de Madeira c/100',  cat:'espatula', catNome:'Espátula', preco:9.60 },
+  // Folhas Prontas
+  { ref:'838', nome:'Folhas Prontas Facial 16un',         cat:'folhas', catNome:'Folhas Prontas', preco:6.48  },
+  { ref:'839', nome:'Folhas Prontas Pernas e Braços 16un',cat:'folhas', catNome:'Folhas Prontas', preco:10.68 },
+  // Parafina Miss Bronze
+  { ref:'56',  nome:'Parafina Urucum 200g',    cat:'parafina', catNome:'Parafina', preco:14.00 },
+  { ref:'519', nome:'Parafina Cenoura 200g',   cat:'parafina', catNome:'Parafina', preco:14.00 },
+  { ref:'58',  nome:'Parafina Beterraba 200g', cat:'parafina', catNome:'Parafina', preco:14.00 },
+  { ref:'59',  nome:'Parafina Urucum 340g',    cat:'parafina', catNome:'Parafina', preco:19.20 },
+  { ref:'900', nome:'Parafina Cenoura 340g',   cat:'parafina', catNome:'Parafina', preco:19.20 },
+  { ref:'523', nome:'Parafina Beterraba 340g', cat:'parafina', catNome:'Parafina', preco:19.20 },
+  // Diversos
+  { ref:'32',   nome:'Nutre Creme dos Pés 110g',              cat:'diversos', catNome:'Diversos', preco:13.28 },
+  { ref:'4795', nome:'Talco Dolomita 200g',                   cat:'diversos', catNome:'Diversos', preco:3.60  },
+  { ref:'525',  nome:'Talco Dolomita 1Kg',                    cat:'diversos', catNome:'Diversos', preco:9.60  },
+  { ref:'5026', nome:'Amolecedor de Cutículas 150ml',         cat:'diversos', catNome:'Diversos', preco:4.50  },
+  { ref:'793',  nome:'Sabonete Líquido Frutas Vermelhas 500ml',cat:'diversos', catNome:'Diversos', preco:7.90 },
+  { ref:'795',  nome:'Sabonete Líquido Erva Doce 500ml',      cat:'diversos', catNome:'Diversos', preco:7.90  },
+  { ref:'794',  nome:'Sabonete Líquido Maçã Verde 500ml',     cat:'diversos', catNome:'Diversos', preco:7.90  },
+  { ref:'4796', nome:'Óleo Removedor Algodão 100ml',          cat:'diversos', catNome:'Diversos', preco:5.20  },
+  { ref:'705',  nome:'Óleo Removedor Algodão 500ml',          cat:'diversos', catNome:'Diversos', preco:14.60 },
+  { ref:'704',  nome:'Óleo Rosa Mosqueta Puro 60ml',          cat:'diversos', catNome:'Diversos', preco:13.60 },
+  { ref:'4787', nome:'Óleo Coco Puro Capilar 100ml',          cat:'diversos', catNome:'Diversos', preco:10.20 },
+];
+
+// ─────────────────────────────────────────────────────────────
+// DEPILE PLUS — RENDER
+// ─────────────────────────────────────────────────────────────
+let depileFiltro = 'todas';
+let depileBusca  = '';
+
+function cardDepileHtml(p) {
+  return `
+    <div class="card-depile">
+      <div class="card-depile-left">
+        <div class="card-depile-ref">Ref. ${p.ref}</div>
+        <div class="card-depile-nome">${p.nome}</div>
+      </div>
+      <div class="card-depile-right">
+        <span class="card-depile-cat">${p.catNome}</span>
+        <div class="card-depile-preco">${R$(p.preco)}</div>
+      </div>
+    </div>`;
+}
+
+function renderDepile() {
+  const grid     = document.getElementById('grid-depile');
+  const vazio    = document.getElementById('vazio-depile');
+  const contagem = document.getElementById('contagem-depile');
+  const termo    = depileBusca.toLowerCase();
+
+  const filtrados = DEPILE.filter(p =>
+    (depileFiltro === 'todas' || p.cat === depileFiltro) &&
+    (!termo || p.nome.toLowerCase().includes(termo) ||
+               p.ref.toLowerCase().includes(termo) ||
+               p.catNome.toLowerCase().includes(termo))
+  );
+
+  if (!filtrados.length) {
+    grid.innerHTML = '';
+    vazio.classList.remove('hidden');
+    contagem.textContent = '';
+    return;
+  }
+  vazio.classList.add('hidden');
+  contagem.textContent = `${filtrados.length} produto${filtrados.length !== 1 ? 's' : ''}`;
+  grid.innerHTML = filtrados.map(cardDepileHtml).join('');
+}
+
+function initDepile() {
+  document.getElementById('filtros-depile').querySelectorAll('.cat-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.getElementById('filtros-depile').querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      depileFiltro = btn.dataset.cat;
+      renderDepile();
+    });
+  });
+
+  const input    = document.getElementById('busca-depile');
+  const clearBtn = document.getElementById('clear-busca-depile');
+  input.addEventListener('input', () => {
+    depileBusca = input.value;
+    clearBtn.classList.toggle('hidden', !depileBusca);
+    renderDepile();
+  });
+  clearBtn.addEventListener('click', () => {
+    input.value = '';
+    depileBusca = '';
+    clearBtn.classList.add('hidden');
+    input.focus();
+    renderDepile();
+  });
+}
+
+// ─────────────────────────────────────────────────────────────
 // OUTROS — DADOS
 // ─────────────────────────────────────────────────────────────
 const OUTROS = [
@@ -473,6 +627,7 @@ function initOutros() {
 const MARCAS = {
   bellcorpus: { titulo: 'Bell Corpus', sub: 'Cosméticos Atacadista' },
   glamour:    { titulo: 'Glamour',     sub: 'Distribuidora'          },
+  depile:     { titulo: 'Depile Plus', sub: 'Cosméticos'             },
   outros:     { titulo: 'Outros',      sub: 'Produtos'               },
 };
 
@@ -482,11 +637,13 @@ function initAbas() {
   const views   = {
     bellcorpus: document.getElementById('view-bellcorpus'),
     glamour:    document.getElementById('view-glamour'),
+    depile:     document.getElementById('view-depile'),
     outros:     document.getElementById('view-outros'),
   };
   const headers = {
     bellcorpus: document.getElementById('header-bellcorpus'),
     glamour:    document.getElementById('header-glamour'),
+    depile:     document.getElementById('header-depile'),
     outros:     document.getElementById('header-outros'),
   };
 
@@ -535,6 +692,8 @@ async function init() {
   initBusca();
   renderCatalogo();
   initCatalogo();
+  renderDepile();
+  initDepile();
   renderOutros();
   initOutros();
   initAbas();

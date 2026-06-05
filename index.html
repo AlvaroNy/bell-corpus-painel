@@ -29,6 +29,7 @@
     <div class="nav-abas">
       <button class="aba-btn active" data-aba="bellcorpus">Bell Corpus</button>
       <button class="aba-btn" data-aba="glamour">Glamour</button>
+      <button class="aba-btn" data-aba="depile">Depile Plus</button>
       <button class="aba-btn" data-aba="outros">Outros</button>
     </div>
 
@@ -72,6 +73,31 @@
       </div>
     </div>
 
+    <!-- Controles Depile Plus -->
+    <div id="header-depile" class="hidden">
+      <div class="search-wrap">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input type="search" id="busca-depile" placeholder="Buscar produto..." autocomplete="off" autocorrect="off" spellcheck="false">
+        <button class="clear-btn hidden" id="clear-busca-depile" aria-label="Limpar">✕</button>
+      </div>
+      <div class="categorias-wrap">
+        <div class="categorias" id="filtros-depile">
+          <button class="cat-btn active" data-cat="todas">Todas</button>
+          <button class="cat-btn" data-cat="cera600">Cera 600g</button>
+          <button class="cat-btn" data-cat="cera290">Cera 290g</button>
+          <button class="cat-btn" data-cat="rollon">Roll-on</button>
+          <button class="cat-btn" data-cat="barra">Cera em Barra</button>
+          <button class="cat-btn" data-cat="papel">Papel Dep.</button>
+          <button class="cat-btn" data-cat="espatula">Espátula</button>
+          <button class="cat-btn" data-cat="folhas">Folhas Prontas</button>
+          <button class="cat-btn" data-cat="parafina">Parafina</button>
+          <button class="cat-btn" data-cat="diversos">Diversos</button>
+        </div>
+      </div>
+    </div>
+
     <!-- Controles Outros (sem filtro, só busca) -->
     <div id="header-outros" class="hidden">
       <div class="search-wrap">
@@ -97,6 +123,13 @@
     <div id="contagem-cat" class="contagem"></div>
     <div id="grid-cat" class="grid"></div>
     <div id="vazio-cat" class="estado-msg hidden">Nenhum produto encontrado 🔍</div>
+  </main>
+
+  <!-- VIEW DEPILE PLUS -->
+  <main id="view-depile" class="hidden">
+    <div id="contagem-depile" class="contagem"></div>
+    <div id="grid-depile" class="grid"></div>
+    <div id="vazio-depile" class="estado-msg hidden">Nenhum produto encontrado 🔍</div>
   </main>
 
   <!-- VIEW OUTROS -->
