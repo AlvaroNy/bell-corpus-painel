@@ -394,6 +394,7 @@ const OUTROS = [
       { nome: 'Cx/12', preco: 60.00 },
     ]
   },
+  { nome: 'Kit Rachaduras', cat: 'Saúde', fornecedores: [{ nome: 'Preço', preco: 7.61 }] },
   {
     nome: 'Gota Milagrosa · Naty Vida', cat: 'Saúde',
     fornecedores: [
