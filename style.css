@@ -110,7 +110,7 @@ h1 {
   pointer-events: none;
 }
 
-#busca, #busca-cat, #busca-depile, #busca-outros {
+#busca, #busca-cat, #busca-depile, #busca-panini, #busca-outros {
   width: 100%;
   padding: 11px 40px 11px 38px;
   border-radius: 26px;
@@ -123,10 +123,11 @@ h1 {
   -webkit-tap-highlight-color: transparent;
 }
 
-#busca::placeholder, #busca-cat::placeholder, #busca-depile::placeholder, #busca-outros::placeholder { color: #aaa; }
+#busca::placeholder, #busca-cat::placeholder, #busca-depile::placeholder, #busca-panini::placeholder, #busca-outros::placeholder { color: #aaa; }
 #busca::-webkit-search-cancel-button,
 #busca-cat::-webkit-search-cancel-button,
 #busca-depile::-webkit-search-cancel-button,
+#busca-panini::-webkit-search-cancel-button,
 #busca-outros::-webkit-search-cancel-button { display: none; }
 
 .clear-btn {

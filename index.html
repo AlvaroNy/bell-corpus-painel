@@ -30,6 +30,7 @@
       <button class="aba-btn active" data-aba="bellcorpus">Bell Corpus</button>
       <button class="aba-btn" data-aba="glamour">Glamour</button>
       <button class="aba-btn" data-aba="depile">Depile Plus</button>
+      <button class="aba-btn" data-aba="panini">Panini</button>
       <button class="aba-btn" data-aba="outros">Outros</button>
     </div>
 
@@ -98,6 +99,17 @@
       </div>
     </div>
 
+    <!-- Controles Panini -->
+    <div id="header-panini" class="hidden">
+      <div class="search-wrap">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input type="search" id="busca-panini" placeholder="Buscar produto..." autocomplete="off" autocorrect="off" spellcheck="false">
+        <button class="clear-btn hidden" id="clear-busca-panini" aria-label="Limpar">✕</button>
+      </div>
+    </div>
+
     <!-- Controles Outros (sem filtro, só busca) -->
     <div id="header-outros" class="hidden">
       <div class="search-wrap">
@@ -130,6 +142,13 @@
     <div id="contagem-depile" class="contagem"></div>
     <div id="grid-depile" class="grid"></div>
     <div id="vazio-depile" class="estado-msg hidden">Nenhum produto encontrado 🔍</div>
+  </main>
+
+  <!-- VIEW PANINI -->
+  <main id="view-panini" class="hidden">
+    <div id="contagem-panini" class="contagem"></div>
+    <div id="grid-panini" class="grid"></div>
+    <div id="vazio-panini" class="estado-msg hidden">Nenhum produto encontrado 🔍</div>
   </main>
 
   <!-- VIEW OUTROS -->

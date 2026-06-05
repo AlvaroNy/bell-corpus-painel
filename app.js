@@ -516,6 +516,62 @@ function initDepile() {
 }
 
 // ─────────────────────────────────────────────────────────────
+// PANINI — DADOS
+// ─────────────────────────────────────────────────────────────
+const PANINI = [
+  { nome: 'Álbum Dourado',              cat: 'Álbuns',      fornecedores: [{ nome: 'Preço', preco: 63.92 }] },
+  { nome: 'Álbum Prata',                cat: 'Álbuns',      fornecedores: [{ nome: 'Preço', preco: 63.92 }] },
+  { nome: 'Álbum Capa Dura Normal',     cat: 'Álbuns',      fornecedores: [{ nome: 'Preço', preco: 59.92 }] },
+  { nome: 'Blister de Figurinhas',      cat: 'Figurinhas',  fornecedores: [{ nome: 'Preço', preco: 67.20 }] },
+  { nome: 'Pacote de Figurinha Unidade',cat: 'Figurinhas',  fornecedores: [{ nome: 'Preço', preco:  5.60 }] },
+  { nome: 'Box Sacola',                 cat: 'Box',         fornecedores: [{ nome: 'Preço', preco: 187.92 }] },
+  { nome: 'Box Luva / Dourado',         cat: 'Box',         fornecedores: [{ nome: 'Preço', preco: 287.92 }] },
+];
+
+// ─────────────────────────────────────────────────────────────
+// PANINI — RENDER
+// ─────────────────────────────────────────────────────────────
+let paniniBusca = '';
+
+function renderPanini() {
+  const grid     = document.getElementById('grid-panini');
+  const vazio    = document.getElementById('vazio-panini');
+  const contagem = document.getElementById('contagem-panini');
+  const termo    = paniniBusca.toLowerCase();
+
+  const filtrados = PANINI.filter(p =>
+    !termo || p.nome.toLowerCase().includes(termo) || p.cat.toLowerCase().includes(termo)
+  );
+
+  if (!filtrados.length) {
+    grid.innerHTML = '';
+    vazio.classList.remove('hidden');
+    contagem.textContent = '';
+    return;
+  }
+  vazio.classList.add('hidden');
+  contagem.textContent = `${filtrados.length} produto${filtrados.length !== 1 ? 's' : ''}`;
+  grid.innerHTML = filtrados.map(cardOutrosHtml).join('');
+}
+
+function initPanini() {
+  const input    = document.getElementById('busca-panini');
+  const clearBtn = document.getElementById('clear-busca-panini');
+  input.addEventListener('input', () => {
+    paniniBusca = input.value;
+    clearBtn.classList.toggle('hidden', !paniniBusca);
+    renderPanini();
+  });
+  clearBtn.addEventListener('click', () => {
+    input.value = '';
+    paniniBusca = '';
+    clearBtn.classList.add('hidden');
+    input.focus();
+    renderPanini();
+  });
+}
+
+// ─────────────────────────────────────────────────────────────
 // OUTROS — DADOS
 // ─────────────────────────────────────────────────────────────
 const OUTROS = [
@@ -630,6 +686,7 @@ const MARCAS = {
   bellcorpus: { titulo: 'Bell Corpus', sub: 'Cosméticos Atacadista' },
   glamour:    { titulo: 'Glamour',     sub: 'Distribuidora'          },
   depile:     { titulo: 'Depile Plus', sub: 'Cosméticos'             },
+  panini:     { titulo: 'Panini',      sub: 'Álbuns e Figurinhas'    },
   outros:     { titulo: 'Outros',      sub: 'Produtos'               },
 };
 
@@ -640,12 +697,14 @@ function initAbas() {
     bellcorpus: document.getElementById('view-bellcorpus'),
     glamour:    document.getElementById('view-glamour'),
     depile:     document.getElementById('view-depile'),
+    panini:     document.getElementById('view-panini'),
     outros:     document.getElementById('view-outros'),
   };
   const headers = {
     bellcorpus: document.getElementById('header-bellcorpus'),
     glamour:    document.getElementById('header-glamour'),
     depile:     document.getElementById('header-depile'),
+    panini:     document.getElementById('header-panini'),
     outros:     document.getElementById('header-outros'),
   };
 
@@ -696,6 +755,8 @@ async function init() {
   initCatalogo();
   renderDepile();
   initDepile();
+  renderPanini();
+  initPanini();
   renderOutros();
   initOutros();
   initAbas();
