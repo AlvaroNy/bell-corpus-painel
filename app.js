@@ -365,6 +365,7 @@ function initCatalogo() {
 // ─────────────────────────────────────────────────────────────
 const DEPILE = [
   // Cera 600g (cx/24)
+  { ref:'-',   nome:'Kit Cera 600g',         cat:'cera600', catNome:'Cera 600g',  preco:21.67 },
   { ref:'8',   nome:'Mel 600g',            cat:'cera600', catNome:'Cera 600g',  preco:7.65 },
   { ref:'7',   nome:'Camomila 600g',        cat:'cera600', catNome:'Cera 600g',  preco:7.65 },
   { ref:'9',   nome:'Algas Marinhas 600g',  cat:'cera600', catNome:'Cera 600g',  preco:7.65 },
