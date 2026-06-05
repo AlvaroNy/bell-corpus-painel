@@ -364,11 +364,29 @@ function initCatalogo() {
 // OUTROS — DADOS
 // ─────────────────────────────────────────────────────────────
 const OUTROS = [
-  { nome: 'Lençol Solteiro Liso Eduardo',  preco: 22.00, cat: 'Lençóis' },
-  { nome: 'Lençol Casal Liso Eduardo',     preco: 31.50, cat: 'Lençóis' },
-  { nome: 'Lençol Queen Liso Eduardo',     preco: 35.50, cat: 'Lençóis' },
-  { nome: 'Fronha Eduardo',                preco: 33.60, cat: 'Lençóis' },
-  { nome: 'Colcha de Retalhos',            preco: 60.00, cat: 'Colchas' },
+  {
+    nome: 'Lençol Solteiro Liso', cat: 'Lençóis',
+    fornecedores: [
+      { nome: 'Eduardo', preco: 22.00 },
+      { nome: 'Fred',    preco: 21.00 },
+    ]
+  },
+  {
+    nome: 'Lençol Casal Liso', cat: 'Lençóis',
+    fornecedores: [
+      { nome: 'Eduardo', preco: 31.50 },
+      { nome: 'Fred',    preco: 30.00 },
+    ]
+  },
+  {
+    nome: 'Lençol Queen Liso', cat: 'Lençóis',
+    fornecedores: [
+      { nome: 'Eduardo', preco: 35.50 },
+      { nome: 'Fred',    preco: 32.00 },
+    ]
+  },
+  { nome: 'Fronha',             preco: 33.60, cat: 'Lençóis', fornecedores: [{ nome: 'Eduardo', preco: 33.60 }] },
+  { nome: 'Colcha de Retalhos', preco: 60.00, cat: 'Colchas', fornecedores: [{ nome: 'Eduardo', preco: 60.00 }] },
 ];
 
 // ─────────────────────────────────────────────────────────────
@@ -377,11 +395,20 @@ const OUTROS = [
 let outrosBusca = '';
 
 function cardOutrosHtml(p) {
+  const multi = p.fornecedores.length > 1;
+  const precosHtml = p.fornecedores.map(f => `
+    <div class="preco-bloco${multi ? ' forn' : ''}">
+      <div class="preco-bloco-label">${f.nome}</div>
+      <div class="preco-bloco-val">${R$(f.preco)}</div>
+    </div>`).join('');
+
   return `
     <div class="card-outros">
-      <div class="card-outros-nome">${p.nome}</div>
-      <div class="card-outros-cat">${p.cat}</div>
-      <div class="card-outros-preco">${R$(p.preco)}</div>
+      <div class="card-outros-topo">
+        <div class="card-outros-nome">${p.nome}</div>
+        <span class="card-outros-cat">${p.cat}</span>
+      </div>
+      <div class="card-outros-precos">${precosHtml}</div>
     </div>`;
 }
 
@@ -392,7 +419,9 @@ function renderOutros() {
   const termo    = outrosBusca.toLowerCase();
 
   const filtrados = OUTROS.filter(p =>
-    !termo || p.nome.toLowerCase().includes(termo) || p.cat.toLowerCase().includes(termo)
+    !termo || p.nome.toLowerCase().includes(termo) ||
+              p.cat.toLowerCase().includes(termo) ||
+              p.fornecedores.some(f => f.nome.toLowerCase().includes(termo))
   );
 
   if (!filtrados.length) {
