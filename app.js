@@ -522,7 +522,7 @@ const PANINI = [
   { nome: 'Álbum Dourado',              cat: 'Álbuns',     fornecedores: [{ nome: 'Custo', preco: 63.92 }, { nome: 'Venda', preco: 70.00 }] },
   { nome: 'Álbum Prata',                cat: 'Álbuns',     fornecedores: [{ nome: 'Custo', preco: 63.92 }, { nome: 'Venda', preco: 70.00 }] },
   { nome: 'Álbum Capa Dura Normal',     cat: 'Álbuns',     fornecedores: [{ nome: 'Custo', preco: 59.92 }, { nome: 'Venda', preco: 65.00 }] },
-  { nome: 'Álbum Normal',               cat: 'Álbuns',     fornecedores: [{ nome: 'Venda', preco: 22.00 }] },
+  { nome: 'Álbum Normal',               cat: 'Álbuns',     fornecedores: [{ nome: 'Custo', preco: 19.92 }, { nome: 'Venda', preco: 22.00 }] },
   { nome: 'Blister de Figurinhas',      cat: 'Figurinhas', fornecedores: [{ nome: 'Custo', preco: 67.20 }] },
   { nome: 'Pacote de Figurinha Unidade',cat: 'Figurinhas', fornecedores: [{ nome: 'Custo', preco:  5.60 }, { nome: 'Venda', preco: 6.00 }] },
   { nome: 'Box Sacola',                 cat: 'Box',        fornecedores: [{ nome: 'Custo', preco: 187.92 }] },
