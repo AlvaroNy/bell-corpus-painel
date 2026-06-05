@@ -8,7 +8,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="apple-touch-icon" href="logo.png">
-  <title>Bell Corpus — Tabela de Preços</title>
+  <title>Tabela de Preços</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,23 +16,24 @@
   <header>
     <div class="header-top">
       <div class="header-marca">
-        <div class="header-logo-wrap"><img src="logo.png" alt="Bell Corpus" class="header-logo"></div>
+        <div class="header-logo-wrap"><img src="logo.png" alt="Logo" class="header-logo"></div>
         <div>
-          <h1>Bell Corpus</h1>
-          <span class="header-sub">Cosméticos Atacadista</span>
+          <h1 id="header-titulo">Bell Corpus</h1>
+          <span class="header-sub" id="header-sub">Cosméticos Atacadista</span>
         </div>
       </div>
       <span class="tabela-data">Abr/2026</span>
     </div>
 
-    <!-- Abas principais -->
+    <!-- Abas de marca -->
     <div class="nav-abas">
-      <button class="aba-btn active" data-aba="tabela">💰 Tabela</button>
-      <button class="aba-btn" data-aba="catalogo">📖 Catálogo</button>
+      <button class="aba-btn active" data-aba="bellcorpus">Bell Corpus</button>
+      <button class="aba-btn" data-aba="glamour">Glamour</button>
+      <button class="aba-btn" data-aba="outros">Outros</button>
     </div>
 
-    <!-- Controles da aba TABELA -->
-    <div id="header-tabela">
+    <!-- Controles Bell Corpus -->
+    <div id="header-bellcorpus">
       <div class="search-wrap">
         <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
           <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
@@ -47,8 +48,8 @@
       </div>
     </div>
 
-    <!-- Controles da aba CATÁLOGO -->
-    <div id="header-catalogo" class="hidden">
+    <!-- Controles Glamour -->
+    <div id="header-glamour" class="hidden">
       <div class="search-wrap">
         <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
           <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
@@ -70,21 +71,39 @@
         </div>
       </div>
     </div>
+
+    <!-- Controles Outros (sem filtro, só busca) -->
+    <div id="header-outros" class="hidden">
+      <div class="search-wrap">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input type="search" id="busca-outros" placeholder="Buscar produto..." autocomplete="off" autocorrect="off" spellcheck="false">
+        <button class="clear-btn hidden" id="clear-busca-outros" aria-label="Limpar">✕</button>
+      </div>
+    </div>
   </header>
 
-  <!-- VIEW TABELA -->
-  <main id="view-tabela">
+  <!-- VIEW BELL CORPUS -->
+  <main id="view-bellcorpus">
     <div id="contagem" class="contagem"></div>
     <div id="loading" class="estado-msg">Carregando produtos...</div>
     <div id="grid" class="grid"></div>
     <div id="vazio" class="estado-msg hidden">Nenhum produto encontrado 🔍</div>
   </main>
 
-  <!-- VIEW CATÁLOGO -->
-  <main id="view-catalogo" class="hidden">
+  <!-- VIEW GLAMOUR -->
+  <main id="view-glamour" class="hidden">
     <div id="contagem-cat" class="contagem"></div>
     <div id="grid-cat" class="grid"></div>
     <div id="vazio-cat" class="estado-msg hidden">Nenhum produto encontrado 🔍</div>
+  </main>
+
+  <!-- VIEW OUTROS -->
+  <main id="view-outros" class="hidden">
+    <div id="contagem-outros" class="contagem"></div>
+    <div id="grid-outros" class="grid"></div>
+    <div id="vazio-outros" class="estado-msg hidden">Nenhum produto encontrado 🔍</div>
   </main>
 
   <script src="app.js"></script>

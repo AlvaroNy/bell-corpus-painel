@@ -361,31 +361,107 @@ function initCatalogo() {
 }
 
 // ─────────────────────────────────────────────────────────────
-// ABAS
+// OUTROS — DADOS
 // ─────────────────────────────────────────────────────────────
+const OUTROS = [
+  { nome: 'Lençol Solteiro Liso Eduardo',  preco: 22.00, cat: 'Lençóis' },
+  { nome: 'Lençol Casal Liso Eduardo',     preco: 31.50, cat: 'Lençóis' },
+  { nome: 'Lençol Queen Liso Eduardo',     preco: 35.50, cat: 'Lençóis' },
+  { nome: 'Fronha Eduardo',                preco: 33.60, cat: 'Lençóis' },
+  { nome: 'Colcha de Retalhos',            preco: 60.00, cat: 'Colchas' },
+];
+
+// ─────────────────────────────────────────────────────────────
+// OUTROS — RENDER
+// ─────────────────────────────────────────────────────────────
+let outrosBusca = '';
+
+function cardOutrosHtml(p) {
+  return `
+    <div class="card-outros">
+      <div class="card-outros-nome">${p.nome}</div>
+      <div class="card-outros-cat">${p.cat}</div>
+      <div class="card-outros-preco">${R$(p.preco)}</div>
+    </div>`;
+}
+
+function renderOutros() {
+  const grid     = document.getElementById('grid-outros');
+  const vazio    = document.getElementById('vazio-outros');
+  const contagem = document.getElementById('contagem-outros');
+  const termo    = outrosBusca.toLowerCase();
+
+  const filtrados = OUTROS.filter(p =>
+    !termo || p.nome.toLowerCase().includes(termo) || p.cat.toLowerCase().includes(termo)
+  );
+
+  if (!filtrados.length) {
+    grid.innerHTML = '';
+    vazio.classList.remove('hidden');
+    contagem.textContent = '';
+    return;
+  }
+  vazio.classList.add('hidden');
+  contagem.textContent = `${filtrados.length} produto${filtrados.length !== 1 ? 's' : ''}`;
+  grid.innerHTML = filtrados.map(cardOutrosHtml).join('');
+}
+
+function initOutros() {
+  const input    = document.getElementById('busca-outros');
+  const clearBtn = document.getElementById('clear-busca-outros');
+  input.addEventListener('input', () => {
+    outrosBusca = input.value;
+    clearBtn.classList.toggle('hidden', !outrosBusca);
+    renderOutros();
+  });
+  clearBtn.addEventListener('click', () => {
+    input.value = '';
+    outrosBusca = '';
+    clearBtn.classList.add('hidden');
+    input.focus();
+    renderOutros();
+  });
+}
+
+// ─────────────────────────────────────────────────────────────
+// ABAS DE MARCA
+// ─────────────────────────────────────────────────────────────
+const MARCAS = {
+  bellcorpus: { titulo: 'Bell Corpus', sub: 'Cosméticos Atacadista' },
+  glamour:    { titulo: 'Glamour',     sub: 'Distribuidora'          },
+  outros:     { titulo: 'Outros',      sub: 'Produtos'               },
+};
+
 function initAbas() {
   const abas = document.querySelectorAll('.aba-btn');
-  const viewTabela    = document.getElementById('view-tabela');
-  const viewCatalogo  = document.getElementById('view-catalogo');
-  const headerTabela  = document.getElementById('header-tabela');
-  const headerCatalogo= document.getElementById('header-catalogo');
+
+  const views   = {
+    bellcorpus: document.getElementById('view-bellcorpus'),
+    glamour:    document.getElementById('view-glamour'),
+    outros:     document.getElementById('view-outros'),
+  };
+  const headers = {
+    bellcorpus: document.getElementById('header-bellcorpus'),
+    glamour:    document.getElementById('header-glamour'),
+    outros:     document.getElementById('header-outros'),
+  };
 
   abas.forEach(btn => {
     btn.addEventListener('click', () => {
       abas.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+
       const aba = btn.dataset.aba;
-      if (aba === 'tabela') {
-        viewTabela.classList.remove('hidden');
-        viewCatalogo.classList.add('hidden');
-        headerTabela.classList.remove('hidden');
-        headerCatalogo.classList.add('hidden');
-      } else {
-        viewTabela.classList.add('hidden');
-        viewCatalogo.classList.remove('hidden');
-        headerTabela.classList.add('hidden');
-        headerCatalogo.classList.remove('hidden');
-      }
+
+      // atualiza título
+      document.getElementById('header-titulo').textContent = MARCAS[aba].titulo;
+      document.getElementById('header-sub').textContent    = MARCAS[aba].sub;
+
+      // mostra/esconde views e headers
+      Object.keys(views).forEach(k => {
+        views[k].classList.toggle('hidden', k !== aba);
+        headers[k].classList.toggle('hidden', k !== aba);
+      });
     });
   });
 }
@@ -415,6 +491,8 @@ async function init() {
   initBusca();
   renderCatalogo();
   initCatalogo();
+  renderOutros();
+  initOutros();
   initAbas();
 }
 
