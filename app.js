@@ -387,6 +387,20 @@ const OUTROS = [
   },
   { nome: 'Fronha',             preco: 33.60, cat: 'Lençóis', fornecedores: [{ nome: 'Eduardo', preco: 33.60 }] },
   { nome: 'Colcha de Retalhos', preco: 60.00, cat: 'Colchas', fornecedores: [{ nome: 'Eduardo', preco: 60.00 }] },
+  {
+    nome: 'Biscoito de Doce e Sal', cat: 'Biscoitos',
+    fornecedores: [
+      { nome: 'Cx/6',  preco: 34.00 },
+      { nome: 'Cx/12', preco: 60.00 },
+    ]
+  },
+  {
+    nome: 'Gota Milagrosa · Naty Vida', cat: 'Saúde',
+    fornecedores: [
+      { nome: 'Dúzia',   preco: 43.00 },
+      { nome: 'Unidade', preco:  3.58 },
+    ]
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────
