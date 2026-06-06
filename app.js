@@ -738,9 +738,9 @@ const MSG_WHATS = 'Oi, Vim pela Tabela do Alvaro';
 
 // Telefones no formato 55 + DDD + número (com o 9 do celular).
 const CONTATOS = {
-  bellcorpus: { nome: 'MG Atacadista',            tel: '553791357520'  },
-  glamour:    { nome: 'Gilda Oliveira (Atacado)', tel: '553799185656'  },
-  depile:     { nome: 'Hebert · Depile Plus',     tel: '553491335424'  },
+  bellcorpus: { nome: 'MG Atacadista',            tel: '5537991357520'  },
+  glamour:    { nome: 'Gilda Oliveira (Atacado)', tel: '5537999185656'  },
+  depile:     { nome: 'Hebert · Depile Plus',     tel: '5534991335424'  },
   copag:      { nome: 'José Dias Avelar',         tel: '5531996114266', email: 'josediasavelar@gmail.com' },
 };
 
