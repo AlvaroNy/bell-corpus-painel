@@ -517,6 +517,23 @@ main { padding: 14px 14px 0; }
 
 .contato-icon { font-size: 0.9rem; }
 
+.card-contato-item.whats {
+  color: #128c4a;
+  font-weight: 700;
+}
+
+.whats-tag {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #fff;
+  background: #25d366;
+  padding: 2px 7px;
+  border-radius: 8px;
+  margin-left: 2px;
+}
+
 /* ── CARD DEPILE PLUS ────────────────────────────── */
 .card-depile {
   background: var(--cinza-card);

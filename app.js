@@ -732,6 +732,56 @@ function initOutros() {
 }
 
 // ─────────────────────────────────────────────────────────────
+// CONTATOS DOS FORNECEDORES
+// ─────────────────────────────────────────────────────────────
+const MSG_WHATS = 'Oi, Vim pela Tabela do Alvaro';
+
+// Telefones no formato 55 + DDD + número (com o 9 do celular).
+const CONTATOS = {
+  bellcorpus: { nome: 'MG Atacadista',            tel: '553791357520'  },
+  glamour:    { nome: 'Gilda Oliveira (Atacado)', tel: '553799185656'  },
+  depile:     { nome: 'Hebert · Depile Plus',     tel: '553491335424'  },
+  copag:      { nome: 'José Dias Avelar',         tel: '5531996114266', email: 'josediasavelar@gmail.com' },
+};
+
+function telBonito(tel) {
+  // 55DDDNUMERO → (DD) XXXXX-XXXX
+  const d = tel.replace(/^55/, '');
+  const ddd = d.slice(0, 2);
+  const resto = d.slice(2);
+  if (resto.length === 9) return `(${ddd}) ${resto.slice(0,5)}-${resto.slice(5)}`;
+  if (resto.length === 8) return `(${ddd}) ${resto.slice(0,4)}-${resto.slice(4)}`;
+  return `(${ddd}) ${resto}`;
+}
+
+function renderContato(marca) {
+  const c = CONTATOS[marca];
+  const el = document.getElementById('contato-' + marca);
+  if (!c || !el) return;
+
+  const wa = `https://wa.me/${c.tel}?text=${encodeURIComponent(MSG_WHATS)}`;
+  const emailHtml = c.email
+    ? `<a href="mailto:${c.email}" class="card-contato-item">
+         <span class="contato-icon">✉</span> ${c.email}
+       </a>`
+    : '';
+
+  el.innerHTML = `
+    <div class="card-contato">
+      <div class="card-contato-nome">${c.nome}</div>
+      ${emailHtml}
+      <a href="${wa}" target="_blank" rel="noopener" class="card-contato-item whats">
+        <span class="contato-icon">💬</span> ${telBonito(c.tel)}
+        <span class="whats-tag">WhatsApp</span>
+      </a>
+    </div>`;
+}
+
+function renderContatos() {
+  Object.keys(CONTATOS).forEach(renderContato);
+}
+
+// ─────────────────────────────────────────────────────────────
 // ABAS DE MARCA
 // ─────────────────────────────────────────────────────────────
 const MARCAS = {
@@ -816,6 +866,7 @@ async function init() {
   initPanini();
   renderOutros();
   initOutros();
+  renderContatos();
   initAbas();
 }
 
