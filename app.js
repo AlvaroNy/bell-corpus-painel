@@ -58,6 +58,7 @@ const DADOS = [
   { nome: 'Sebo de Carneiro Bisnaga 200g / Pote 240g',                                  preco_dz: 48.40, cat: 'Corpo & Saúde' },
   { nome: 'Gotinha Milagrosa — Loção Hidratante para Pés 30ml',                         preco_dz: 35.80, cat: 'Corpo & Saúde' },
   { nome: 'Bell Creme',                                                                   preco_dz: 39.60, cat: 'Corpo & Saúde' },
+  { nome: 'Creme de Ureia',                                                               preco_dz: 63.80, cat: 'Corpo & Saúde' },
 
   // Cabelos
   { nome: 'Shampoo 380ml — Demais Fragrâncias',                                          preco_dz: 47.90, cat: 'Cabelos' },
