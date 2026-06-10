@@ -366,7 +366,7 @@ function initCatalogo() {
 // ─────────────────────────────────────────────────────────────
 const DEPILE = [
   // Cera 600g (cx/24)
-  { ref:'-',   nome:'Kit Cera 600g',         cat:'cera600', catNome:'Cera 600g',  preco:21.67 },
+  { ref:'-',   nome:'Kit Cera 600g',         cat:'cera600', catNome:'Cera 600g',  preco:12.51 },
   { ref:'8',   nome:'Mel 600g',            cat:'cera600', catNome:'Cera 600g',  preco:7.65 },
   { ref:'7',   nome:'Camomila 600g',        cat:'cera600', catNome:'Cera 600g',  preco:7.65 },
   { ref:'9',   nome:'Algas Marinhas 600g',  cat:'cera600', catNome:'Cera 600g',  preco:7.65 },
@@ -659,7 +659,7 @@ const OUTROS = [
     ]
   },
   { nome: 'Kit Rachaduras', cat: 'Saúde', fornecedores: [{ nome: 'Preço', preco: 7.61 }] },
-  { nome: 'Kit Cera 600g', cat: 'Depilação', fornecedores: [{ nome: 'Preço', preco: 21.67 }] },
+  { nome: 'Kit Cera 600g', cat: 'Depilação', fornecedores: [{ nome: 'Preço', preco: 12.51 }] },
   {
     nome: 'Gota Milagrosa · Naty Vida', cat: 'Saúde',
     fornecedores: [
