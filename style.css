@@ -658,6 +658,14 @@ main { padding: 14px 14px 0; }
   font-variant-numeric: tabular-nums;
 }
 
+.card-outros-obs {
+  font-size: 0.72rem;
+  line-height: 1.35;
+  color: var(--texto-suave);
+  border-top: 1px solid var(--cinza-borda);
+  padding-top: 8px;
+}
+
 /* ── ESTADOS ─────────────────────────────────────── */
 .estado-msg {
   text-align: center;

@@ -667,6 +667,15 @@ const OUTROS = [
       { nome: 'Unidade', preco:  3.58 },
     ]
   },
+  {
+    nome: 'Cone Trufado', cat: 'Doces',
+    fornecedores: [
+      { nome: 'Cx c/ Dúzia', preco: 549.00 },
+      { nome: 'Caixa',       preco:  45.75 },
+      { nome: 'Unidade',     preco:   3.15 },
+    ],
+    obs: 'Fornecedor: Ricardo Daldegan (Cone Trufado) — 37 9967-1293 · Mesa Minas — 99924-2525',
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────
@@ -682,6 +691,10 @@ function cardOutrosHtml(p) {
       <div class="preco-bloco-val">${R$(f.preco)}</div>
     </div>`).join('');
 
+  const obsHtml = p.obs
+    ? `<div class="card-outros-obs">${p.obs}</div>`
+    : '';
+
   return `
     <div class="card-outros">
       <div class="card-outros-topo">
@@ -689,6 +702,7 @@ function cardOutrosHtml(p) {
         <span class="card-outros-cat">${p.cat}</span>
       </div>
       <div class="card-outros-precos">${precosHtml}</div>
+      ${obsHtml}
     </div>`;
 }
 
@@ -701,6 +715,7 @@ function renderOutros() {
   const filtrados = OUTROS.filter(p =>
     !termo || p.nome.toLowerCase().includes(termo) ||
               p.cat.toLowerCase().includes(termo) ||
+              (p.obs && p.obs.toLowerCase().includes(termo)) ||
               p.fornecedores.some(f => f.nome.toLowerCase().includes(termo))
   );
 
