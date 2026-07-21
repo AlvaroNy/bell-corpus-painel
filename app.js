@@ -677,14 +677,21 @@ const OUTROS = [
     obs: 'Fornecedor: Ricardo Daldegan (Cone Trufado) — 37 9967-1293 · Mesa Minas — 99924-2525',
   },
   {
-    nome: 'Pack Adrenalyn', cat: 'Colecionáveis',
+    nome: 'Pack Adrenalyn 2026', cat: 'Colecionáveis',
     fornecedores: [
       { nome: 'Pack · promo',    preco:   4.76 },
       { nome: 'Pack · normal',   preco:   9.52 },
+      { nome: 'Pack · Magalu',   preco:   8.50 },
       { nome: 'Box 24 · promo',  preco: 114.24 },
       { nome: 'Box 24 · normal', preco: 228.48 },
     ],
     obs: 'Fornecedor: Panini',
+  },
+  {
+    nome: 'Pack Adrenalyn 2025', cat: 'Colecionáveis',
+    fornecedores: [
+      { nome: 'Custo', preco: 3.15 },
+    ],
   },
 ];
 
