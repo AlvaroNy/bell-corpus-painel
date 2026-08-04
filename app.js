@@ -693,6 +693,9 @@ const OUTROS = [
       { nome: 'Custo', preco: 3.15 },
     ],
   },
+  { nome: 'Sleve Normal',     cat: 'Colecionáveis', fornecedores: [{ nome: 'Preço', preco:  7.30 }] },
+  { nome: 'Top Sleve',        cat: 'Colecionáveis', fornecedores: [{ nome: 'Preço', preco:  7.80 }] },
+  { nome: 'Sleve Magnético',  cat: 'Colecionáveis', fornecedores: [{ nome: 'Preço', preco: 14.00 }] },
 ];
 
 // ─────────────────────────────────────────────────────────────
