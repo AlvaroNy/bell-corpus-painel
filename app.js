@@ -698,6 +698,21 @@ const OUTROS = [
   { nome: 'Sleve Magnético', cat: 'Acessórios', fornecedores: [{ nome: 'Preço', preco: 14.00 }] },
   { nome: 'Fita Larga 500m 08/09', cat: 'Embalagem', fornecedores: [{ nome: 'Preço',   preco: 13.00 }] },
   { nome: 'Tônico Barba',          cat: 'Saúde',     fornecedores: [{ nome: 'Unidade', preco:  7.55 }] },
+  {
+    nome: 'Sleve 80×120 · Dimix', cat: 'Acessórios',
+    fornecedores: [
+      { nome: '10–99 un', preco:  9.40 },
+      { nome: '100+ un',  preco:  8.90 },
+    ],
+  },
+  {
+    nome: 'Sleve Blackout · CF10001', cat: 'Acessórios',
+    fornecedores: [
+      { nome: '10–99 un', preco: 16.90 },
+      { nome: '100+ un',  preco: 14.90 },
+      { nome: 'Venda',    preco: 35.90 },
+    ],
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────
