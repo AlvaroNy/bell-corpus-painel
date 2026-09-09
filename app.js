@@ -696,6 +696,8 @@ const OUTROS = [
   { nome: 'Sleve Normal',    cat: 'Acessórios', fornecedores: [{ nome: 'Preço', preco:  7.30 }] },
   { nome: 'Top Sleve',       cat: 'Acessórios', fornecedores: [{ nome: 'Preço', preco:  7.80 }] },
   { nome: 'Sleve Magnético', cat: 'Acessórios', fornecedores: [{ nome: 'Preço', preco: 14.00 }] },
+  { nome: 'Fita Larga 500m 08/09', cat: 'Embalagem', fornecedores: [{ nome: 'Preço',   preco: 13.00 }] },
+  { nome: 'Tônico Barba',          cat: 'Saúde',     fornecedores: [{ nome: 'Unidade', preco:  7.55 }] },
 ];
 
 // ─────────────────────────────────────────────────────────────
