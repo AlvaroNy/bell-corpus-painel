@@ -52,7 +52,7 @@ const DADOS = [
 
   // Corpo & Saúde
   { nome: 'Castanha da Índia 250g — Creme para as Pernas',                              preco_dz: 42.40, cat: 'Corpo & Saúde' },
-  { nome: 'Cartilagem de Tubarão 240g',                                                  preco_dz: 36.20, cat: 'Corpo & Saúde' },
+  { nome: 'Cartilagem de Tubarão 240g',                                                  preco_dz: 39.00, cat: 'Corpo & Saúde' },
   { nome: 'Esfoliante Hidratapé 200g',                                                   preco_dz: 69.90, cat: 'Corpo & Saúde' },
   { nome: 'Hidratante Corporal (Amêndoas, Aveia e Mel, Elastina, Frutas Vermelhas, Rosa Mosqueta, Talco, Vit.E) 200g', preco_dz: 59.30, cat: 'Corpo & Saúde' },
   { nome: 'Sebo de Carneiro Bisnaga 200g / Pote 240g',                                  preco_dz: 48.40, cat: 'Corpo & Saúde' },
@@ -67,7 +67,7 @@ const DADOS = [
   { nome: 'Shampoo / Condicionador Bell Man Anticaspa',                                  preco_dz: 47.90, cat: 'Cabelos' },
   { nome: 'Leave-In Finalizador 200ml — Todas as Fragrâncias',                          preco_dz: 63.80, cat: 'Cabelos' },
   { nome: 'Leite Siliconizado Sem Enxague 400g',                                         preco_dz: 57.80, cat: 'Cabelos' },
-  { nome: 'Kit Piolho c/ Pente Fino (Shampoo + Condicionador + Pente)',                 preco_dz: 128.70, cat: 'Cabelos' },
+  { nome: 'Kit Piolho c/ Pente Fino (Shampoo + Condicionador + Pente)',                 preco_dz: 150.00, cat: 'Cabelos' },
   { nome: 'Spray Cachos Perfeitos / Liso Imediato',                                      preco_dz: 110.00, cat: 'Cabelos' },
   { nome: 'Óleo de Mamona Spray 60ml',                                                   preco_dz: 69.30, cat: 'Cabelos' },
   { nome: 'Óleo Reparador Argan, Coco e Rícino 60ml',                                   preco_dz: 90.80, cat: 'Cabelos' },
