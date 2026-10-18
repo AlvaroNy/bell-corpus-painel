@@ -519,6 +519,197 @@ function initDepile() {
 }
 
 // ─────────────────────────────────────────────────────────────
+// SPKIDS — DADOS
+// ─────────────────────────────────────────────────────────────
+const SPKIDS = [
+  // Pokémon
+  { nome: 'BOX COLECAO MEGA ZYGARDE EX', cat: 'Pokémon', preco: 637.33, link: 'https://spkidsdistribuidora.com.br/produto/box-colecao-mega-zygarde-ex/' },
+  { nome: 'DECK BATALHA DE LIGA – MEGA LUCARIO EX', cat: 'Pokémon', preco: 495.70, link: 'https://spkidsdistribuidora.com.br/produto/deck-batalha-de-liga-mega-lucario-ex/' },
+  { nome: 'ME03 – DESAFIO ESTRATEGICO – EQUILIBRIO PERFEITO', cat: 'Pokémon', preco: 826.15, link: 'https://spkidsdistribuidora.com.br/produto/me03-desafio-estrategico-equilibrio-perfeito/' },
+  { nome: 'ME04 – BLISTER UNITARIO – CAOS ASCENDENTE', cat: 'Pokémon', preco: 198.15, link: 'https://spkidsdistribuidora.com.br/produto/me04-blister-unitario-caos-ascendente/' },
+  { nome: 'ME05 – BLISTER QUADRUPLO – ESCURIDAO ABSOLUTA', cat: 'Pokémon', preco: 396.51, link: 'https://spkidsdistribuidora.com.br/produto/me05-blister-quadruplo-escuridao-absoluta/' },
+  { nome: 'ME05 – BLISTER TRIPLO – ESCURIDAO ABSOLUTA', cat: 'Pokémon', preco: 304.44, link: 'https://spkidsdistribuidora.com.br/produto/me05-blister-triplo-escuridao-absoluta/' },
+  { nome: 'ME05 – BLISTER UNITARIO – ESCURIDAO ABSOLUTA', cat: 'Pokémon', preco: 198.14, link: 'https://spkidsdistribuidora.com.br/produto/me05-blister-unitario-escuridao-absoluta/' },
+  { nome: 'ME05 – BOOSTER DISPLAY – ESCURIDAO ABSOLUTA', cat: 'Pokémon', preco: 1188.90, link: 'https://spkidsdistribuidora.com.br/produto/me05-booster-display-escuridao-absoluta/' },
+  { nome: 'POKEMON FERRAMENTAS DE TREINADOR SQUAWKABILLY EX', cat: 'Pokémon', preco: 472.10, link: 'https://spkidsdistribuidora.com.br/produto/pokemon-ferramentas-de-treinador-squawkabilly-ex/' },
+  { nome: 'POKEMON ME04 – DESAFIO ESTRATEGICO – CAOS ASCENDENTE', cat: 'Pokémon', preco: 826.15, link: 'https://spkidsdistribuidora.com.br/produto/pokemon-me04-desafio-estrategico-caos-ascendente/' },
+  { nome: 'POKEMON ME05 – DESAFIO ESTRATEGICO – ESCURIDAO ABSOLUTA', cat: 'Pokémon', preco: 826.15, link: 'https://spkidsdistribuidora.com.br/produto/pokemon-me05-desafio-estrategico-escuridao-absoluta/' },
+  { nome: 'POKEMON – DECK BATALHA DE LIGA MEWTWO EX', cat: 'Pokémon', preco: 495.70, link: 'https://spkidsdistribuidora.com.br/produto/pokemon-deck-batalha-de-liga-mewtwo-ex/' },
+  { nome: 'POKEMON – FERRAMENTAS DE TREINADOR FEZANDIPITI EX', cat: 'Pokémon', preco: 592.48, link: 'https://spkidsdistribuidora.com.br/produto/pokemon-ferramentas-de-treinador-fezandipiti-ex/' },
+
+  // Baralhos
+  { nome: 'BARALHO BICYCLE ALICE IN WONDERLAND', cat: 'Baralhos', preco: 772.55, link: 'https://spkidsdistribuidora.com.br/produto/baralho-bicycle-alice-in-wonderland/' },
+  { nome: 'BARALHO BICYCLE DISNEY CATS AND DOGS', cat: 'Baralhos', preco: 643.78, link: 'https://spkidsdistribuidora.com.br/produto/baralho-bicycle-disney-cats-and-dogs/' },
+  { nome: 'BARALHO BICYCLE DISNEY CLASSIC MICKEY MOUSE (RED)', cat: 'Baralhos', preco: 643.77, link: 'https://spkidsdistribuidora.com.br/produto/baralho-bicycle-disney-classic-mickey-mouse-red/' },
+  { nome: 'BARALHO BICYCLE DISNEY GOOFY (PATETA)', cat: 'Baralhos', preco: 643.78, link: 'https://spkidsdistribuidora.com.br/produto/baralho-bicycle-disney-goofy-pateta/' },
+  { nome: 'BARALHO BICYCLE DONALD DUCK', cat: 'Baralhos', preco: 772.55, link: 'https://spkidsdistribuidora.com.br/produto/baralho-bicycle-donald-duck/' },
+  { nome: 'BARALHO BICYCLE FROZEN', cat: 'Baralhos', preco: 772.55, link: 'https://spkidsdistribuidora.com.br/produto/baralho-bicycle-frozen/' },
+  { nome: 'BARALHO BICYCLE JUMBO INDEX', cat: 'Baralhos', preco: 321.88, link: 'https://spkidsdistribuidora.com.br/produto/baralho-bicycle-jumbo-index/' },
+  { nome: 'BARALHO BICYCLE LION KING', cat: 'Baralhos', preco: 1287.66, link: 'https://spkidsdistribuidora.com.br/produto/baralho-bicycle-lion-king/' },
+  { nome: 'BARALHO BICYCLE MOANA', cat: 'Baralhos', preco: 772.55, link: 'https://spkidsdistribuidora.com.br/produto/baralho-bicycle-moana/' },
+  { nome: 'BARALHO BICYCLE STITCH', cat: 'Baralhos', preco: 643.77, link: 'https://spkidsdistribuidora.com.br/produto/baralho-bicycle-stitch/' },
+  { nome: 'BARALHO BICYCLE TOKYO REVENGERS', cat: 'Baralhos', preco: 450.66, link: 'https://spkidsdistribuidora.com.br/produto/baralho-bicycle-tokyo-revengers/' },
+  { nome: 'CLASSICOS COPAG', cat: 'Baralhos', preco: 236.03, link: 'https://spkidsdistribuidora.com.br/produto/classicos-copag/' },
+  { nome: 'HARRY POTTER – CLASSICOS COPAG', cat: 'Baralhos', preco: 236.03, link: 'https://spkidsdistribuidora.com.br/produto/harry-potter-classicos-copag/' },
+
+  // Figurinhas & Stickers
+  { nome: '2025/26 FC BARCELONA STICKERS SET', cat: 'Figurinhas & Stickers', preco: 85.07, link: 'https://spkidsdistribuidora.com.br/produto/2025-26-fc-barcelona-stickers-set/' },
+  { nome: '2025/26 REAL MADRID CF STICKERS SET', cat: 'Figurinhas & Stickers', preco: 85.07, link: 'https://spkidsdistribuidora.com.br/produto/2025-26-real-madrid-cf-stickers-set/' },
+  { nome: 'KIT ENVELOPE STICKERS COM 10 PACOTES UEFA CHAMPIONS LEAGUE 2025/26', cat: 'Figurinhas & Stickers', preco: 42.49, link: 'https://spkidsdistribuidora.com.br/produto/kit-envelope-stickers-com-10-pacotes-uefa-champions-league-2025-26/' },
+  { nome: 'LIVRO ILUSTRADO CAPA DURA UEFA CHAMPIONS LEAGUE 2025/26', cat: 'Figurinhas & Stickers', preco: 73.76, link: 'https://spkidsdistribuidora.com.br/produto/livro-ilustrado-capa-dura-uefa-champions-league-2025-26/' },
+  { nome: 'Topps 2025/26 Figurinhas Premier League – Eco Pack', cat: 'Figurinhas & Stickers', preco: 54.08, link: 'https://spkidsdistribuidora.com.br/produto/topps-2025-26-figurinhas-premier-league-eco-pack/' },
+  { nome: 'Topps 2025/26 Figurinhas Premier League – Individual Pack', cat: 'Figurinhas & Stickers', preco: 4.64, link: 'https://spkidsdistribuidora.com.br/produto/topps-2025-26-figurinhas-premier-league-individual-pack/' },
+  { nome: 'Topps 2025/26 Figurinhas Premier League – Mega Pack', cat: 'Figurinhas & Stickers', preco: 108.22, link: 'https://spkidsdistribuidora.com.br/produto/topps-2025-26-figurinhas-premier-league-mega-pack/' },
+  { nome: 'Topps 2025/26 Figurinhas Premier League – Multipack', cat: 'Figurinhas & Stickers', preco: 38.60, link: 'https://spkidsdistribuidora.com.br/produto/topps-2025-26-figurinhas-premier-league-multipack/' },
+  { nome: 'Topps 2025/26 Figurinhas Premier League – Starter Pack', cat: 'Figurinhas & Stickers', preco: 54.07, link: 'https://spkidsdistribuidora.com.br/produto/topps-2025-26-figurinhas-premier-league-starter-pack/' },
+  { nome: 'Topps 2025/26 Match Attax Extra – Eco Pack', cat: 'Figurinhas & Stickers', preco: 54.08, link: 'https://spkidsdistribuidora.com.br/produto/topps-2025-26-match-attax-extra-eco-pack/' },
+  { nome: 'Topps 2025/26 Match Attax Extra – Mega Lata 1 – Goaliaths', cat: 'Figurinhas & Stickers', preco: 92.75, link: 'https://spkidsdistribuidora.com.br/produto/topps-2025-26-match-attax-extra-mega-lata-1-goaliaths/' },
+  { nome: 'Topps 2025/26 Match Attax Extra – Mega Lata 2 – Psyckicks', cat: 'Figurinhas & Stickers', preco: 92.75, link: 'https://spkidsdistribuidora.com.br/produto/topps-2025-26-match-attax-extra-mega-lata-2-psyckicks/' },
+  { nome: 'Topps 2025/26 Match Attax Extra – Mega Lata 3 – Blitzballerz', cat: 'Figurinhas & Stickers', preco: 92.75, link: 'https://spkidsdistribuidora.com.br/produto/topps-2025-26-match-attax-extra-mega-lata-3-blitzballerz/' },
+  { nome: 'Topps 2025/26 Match Attax Extra – Mega Multipack', cat: 'Figurinhas & Stickers', preco: 69.55, link: 'https://spkidsdistribuidora.com.br/produto/topps-2025-26-match-attax-extra-mega-multipack/' },
+  { nome: 'Topps 2025/26 Match Attax Extra – Pacote com 12 cards', cat: 'Figurinhas & Stickers', preco: 492.78, link: 'https://spkidsdistribuidora.com.br/produto/topps-2025-26-match-attax-extra-pacote-com-12-cards/' },
+  { nome: 'Topps 2025/26 Match Attax Extra – Starter Pack – Retail', cat: 'Figurinhas & Stickers', preco: 77.28, link: 'https://spkidsdistribuidora.com.br/produto/topps-2025-26-match-attax-extra-starter-pack-retail/' },
+  { nome: 'Topps 2025/26 Match Attax Extra – The X-Tin', cat: 'Figurinhas & Stickers', preco: 139.17, link: 'https://spkidsdistribuidora.com.br/produto/topps-2025-26-match-attax-extra-the-x-tin/' },
+  { nome: 'Topps 2026 Formula 1 Turbo Attax – Mega Lata Guardians of the Grid', cat: 'Figurinhas & Stickers', preco: 139.17, link: 'https://spkidsdistribuidora.com.br/produto/topps-2026-formula-1-turbo-attax-mega-lata-guardians-of-the-grid/' },
+  { nome: 'Topps 2026 Formula 1 Turbo Attax – Mega Lata Sunshine State', cat: 'Figurinhas & Stickers', preco: 139.17, link: 'https://spkidsdistribuidora.com.br/produto/topps-2026-formula-1-turbo-attax-mega-lata-sunshine-state/' },
+  { nome: 'Topps 2026 Formula 1 Turbo Attax – Starter Pack', cat: 'Figurinhas & Stickers', preco: 92.75, link: 'https://spkidsdistribuidora.com.br/produto/topps-2026-formula-1-turbo-attax-starter-pack/' },
+  { nome: 'Topps 2026 Formula 1 Turbo Attax – Super Lata', cat: 'Figurinhas & Stickers', preco: 146.90, link: 'https://spkidsdistribuidora.com.br/produto/topps-2026-formula-1-turbo-attax-super-lata/' },
+  { nome: 'Topps – Kit Livro Ilustrado Capa Brochura 10 Envelope Sticker UEFA Champions League 2025/26', cat: 'Figurinhas & Stickers', preco: 61.80, link: 'https://spkidsdistribuidora.com.br/produto/topps-kit-livro-ilustrado-capa-brochura-10-envelope-sticker-uefa-champions-league-2025-26/' },
+
+  // Pastas Sabores
+  { nome: 'PASTA SABORES 1X1 BRANCA', cat: 'Pastas Sabores', preco: 32.98, link: 'https://spkidsdistribuidora.com.br/produto/pasta-sabores-1x1-branca/' },
+  { nome: 'PASTA SABORES 1X1 PRETA', cat: 'Pastas Sabores', preco: 32.90, link: 'https://spkidsdistribuidora.com.br/produto/pasta-sabores-1x1-preta/' },
+  { nome: 'PASTA SABORES 1X1 PRETA P/ CARTA JUMBO', cat: 'Pastas Sabores', preco: 66.90, link: 'https://spkidsdistribuidora.com.br/produto/pasta-sabores-1x1-preta-p-carta-jumbo/' },
+  { nome: 'PASTA SABORES 1X1 ROSA', cat: 'Pastas Sabores', preco: 32.90, link: 'https://spkidsdistribuidora.com.br/produto/pasta-sabores-1x1-rosa/' },
+  { nome: 'PASTA SABORES 2X2 AMARELA', cat: 'Pastas Sabores', preco: 50.68, link: 'https://spkidsdistribuidora.com.br/produto/pasta-sabores-2x2-amarela/' },
+  { nome: 'PASTA SABORES 2X2 AZUL', cat: 'Pastas Sabores', preco: 50.68, link: 'https://spkidsdistribuidora.com.br/produto/pasta-sabores-2x2-azul/' },
+  { nome: 'PASTA SABORES 2X2 BRANCA', cat: 'Pastas Sabores', preco: 53.47, link: 'https://spkidsdistribuidora.com.br/produto/pasta-sabores-2x2-branca/' },
+  { nome: 'PASTA SABORES 2X2 LARANJA', cat: 'Pastas Sabores', preco: 50.68, link: 'https://spkidsdistribuidora.com.br/produto/pasta-sabores-2x2-laranja/' },
+  { nome: 'PASTA SABORES 2X2 PRETA', cat: 'Pastas Sabores', preco: 50.68, link: 'https://spkidsdistribuidora.com.br/produto/pasta-sabores-2x2-preta/' },
+  { nome: 'PASTA SABORES 2X2 UVA', cat: 'Pastas Sabores', preco: 50.68, link: 'https://spkidsdistribuidora.com.br/produto/pasta-sabores-2x2-uva/' },
+  { nome: 'PASTA SABORES 2X2 VERDE', cat: 'Pastas Sabores', preco: 50.68, link: 'https://spkidsdistribuidora.com.br/produto/pasta-sabores-2x2-verde/' },
+  { nome: 'PASTA SABORES 2X2 VERMELHA', cat: 'Pastas Sabores', preco: 50.68, link: 'https://spkidsdistribuidora.com.br/produto/pasta-sabores-2x2-vermelha/' },
+  { nome: 'PASTA SABORES 3X3 AMARELA', cat: 'Pastas Sabores', preco: 72.43, link: 'https://spkidsdistribuidora.com.br/produto/pasta-sabores-3x3-amarela/' },
+  { nome: 'PASTA SABORES 3X3 AZUL', cat: 'Pastas Sabores', preco: 72.43, link: 'https://spkidsdistribuidora.com.br/produto/pasta-sabores-3x3-azul/' },
+  { nome: 'PASTA SABORES 3X3 BRANCA', cat: 'Pastas Sabores', preco: 72.43, link: 'https://spkidsdistribuidora.com.br/produto/pasta-sabores-3x3-branca/' },
+  { nome: 'PASTA SABORES 3X3 LARANJA', cat: 'Pastas Sabores', preco: 72.43, link: 'https://spkidsdistribuidora.com.br/produto/pasta-sabores-3x3-laranja/' },
+  { nome: 'PASTA SABORES 3X3 MARROM', cat: 'Pastas Sabores', preco: 82.90, link: 'https://spkidsdistribuidora.com.br/produto/pasta-sabores-3x3-marrom/' },
+  { nome: 'PASTA SABORES 3X3 ROSA', cat: 'Pastas Sabores', preco: 72.43, link: 'https://spkidsdistribuidora.com.br/produto/pasta-sabores-3x3-rosa/' },
+  { nome: 'PASTA SABORES 3X3 ROXA', cat: 'Pastas Sabores', preco: 72.43, link: 'https://spkidsdistribuidora.com.br/produto/pasta-sabores-3x3-roxa/' },
+  { nome: 'PASTA SABORES 3X3 VERDE', cat: 'Pastas Sabores', preco: 72.43, link: 'https://spkidsdistribuidora.com.br/produto/pasta-sabores-3x3-verde/' },
+  { nome: 'PASTA SABORES 3X3 VERMELHA', cat: 'Pastas Sabores', preco: 72.43, link: 'https://spkidsdistribuidora.com.br/produto/pasta-sabores-3x3-vermelha/' },
+  { nome: 'PASTA SABORES 4X3 AMARELA', cat: 'Pastas Sabores', preco: 86.93, link: 'https://spkidsdistribuidora.com.br/produto/pasta-sabores-4x3-amarela/' },
+  { nome: 'PASTA SABORES 4X3 AZUL', cat: 'Pastas Sabores', preco: 86.93, link: 'https://spkidsdistribuidora.com.br/produto/pasta-sabores-4x3-azul/' },
+  { nome: 'PASTA SABORES 4X3 BRANCA', cat: 'Pastas Sabores', preco: 86.93, link: 'https://spkidsdistribuidora.com.br/produto/pasta-sabores-4x3-branca/' },
+  { nome: 'PASTA SABORES 4X3 LARANJA', cat: 'Pastas Sabores', preco: 86.93, link: 'https://spkidsdistribuidora.com.br/produto/pasta-sabores-4x3-laranja/' },
+  { nome: 'PASTA SABORES 4X3 PRETA', cat: 'Pastas Sabores', preco: 86.93, link: 'https://spkidsdistribuidora.com.br/produto/pasta-sabores-4x3-preta/' },
+  { nome: 'PASTA SABORES 4X3 ROSA', cat: 'Pastas Sabores', preco: 86.93, link: 'https://spkidsdistribuidora.com.br/produto/pasta-sabores-4x3-rosa/' },
+  { nome: 'PASTA SABORES 4X3 ROXA', cat: 'Pastas Sabores', preco: 86.93, link: 'https://spkidsdistribuidora.com.br/produto/pasta-sabores-4x3-roxa/' },
+  { nome: 'PASTA SABORES 4X3 VERDE', cat: 'Pastas Sabores', preco: 86.93, link: 'https://spkidsdistribuidora.com.br/produto/pasta-sabores-4x3-verde/' },
+  { nome: 'PASTA SABORES 4X3 VERMELHA', cat: 'Pastas Sabores', preco: 86.93, link: 'https://spkidsdistribuidora.com.br/produto/pasta-sabores-4x3-vermelha/' },
+
+  // Pastas Premium
+  { nome: 'PASTA PREMIUM 1X1 C/ 30 FOLHAS PRETA/VERMELHA', cat: 'Pastas Premium', preco: 82.90, link: 'https://spkidsdistribuidora.com.br/produto/pasta-premium-1x1-c-30-folhas-preta-vermelha/' },
+  { nome: 'PASTA PREMIUM 2×2 C/20 FOLHAS – AMARELA', cat: 'Pastas Premium', preco: 198.28, link: 'https://spkidsdistribuidora.com.br/produto/pasta-premium-2x2-c-20-folhas-amarela/' },
+  { nome: 'PASTA PREMIUM 2×2 C/20 FOLHAS – AZUL PISCINA', cat: 'Pastas Premium', preco: 198.28, link: 'https://spkidsdistribuidora.com.br/produto/pasta-premium-2x2-c-20-folhas-azul-piscina/' },
+  { nome: 'PASTA PREMIUM 2×2 C/20 FOLHAS – BRANCA', cat: 'Pastas Premium', preco: 198.27, link: 'https://spkidsdistribuidora.com.br/produto/pasta-premium-2x2-c-20-folhas-branca/' },
+  { nome: 'PASTA PREMIUM 2×2 C/20 FOLHAS – PRETA', cat: 'Pastas Premium', preco: 198.90, link: 'https://spkidsdistribuidora.com.br/produto/pasta-premium-2x2-c-20-folhas-preta/' },
+  { nome: 'PASTA PREMIUM 3X3 C/ 20 FOLHAS AZUL PISCINA', cat: 'Pastas Premium', preco: 231.93, link: 'https://spkidsdistribuidora.com.br/produto/pasta-premium-3x3-c-20-folhas-azul-piscina/' },
+  { nome: 'PASTA PREMIUM 3X3 C/ 20 FOLHAS LARANJA', cat: 'Pastas Premium', preco: 231.93, link: 'https://spkidsdistribuidora.com.br/produto/pasta-premium-3x3-c-20-folhas-laranja/' },
+  { nome: 'PASTA PREMIUM 3X3 C/ 20 FOLHAS ROSA', cat: 'Pastas Premium', preco: 231.93, link: 'https://spkidsdistribuidora.com.br/produto/pasta-premium-3x3-c-20-folhas-rosa/' },
+  { nome: 'PASTA PREMIUM 3X3 C/ 20 FOLHAS SERIE COLORS S/ CAIXA – BRANCA/VERMELHA', cat: 'Pastas Premium', preco: 214.80, link: 'https://spkidsdistribuidora.com.br/produto/pasta-premium-3x3-c-20-folhas-serie-colors-s-caixa-branca-vermelha/' },
+  { nome: 'PASTA PREMIUM 3X3 C/ 20 FOLHAS SERIE COLORS S/ CAIXA – CINZA/AMARELA', cat: 'Pastas Premium', preco: 214.80, link: 'https://spkidsdistribuidora.com.br/produto/pasta-premium-3x3-c-20-folhas-serie-colors-s-caixa-cinza-amarela/' },
+  { nome: 'PASTA PREMIUM 3X3 C/ 20 FOLHAS SERIE COLORS S/ CAIXA – PRETA/AMARELA', cat: 'Pastas Premium', preco: 214.80, link: 'https://spkidsdistribuidora.com.br/produto/pasta-premium-3x3-c-20-folhas-serie-colors-s-caixa-preta-amarela/' },
+  { nome: 'PASTA PREMIUM 3X3 C/ 20 FOLHAS SERIE COLORS S/ CAIXA – PRETA/BRANCA', cat: 'Pastas Premium', preco: 214.80, link: 'https://spkidsdistribuidora.com.br/produto/pasta-premium-3x3-c-20-folhas-serie-colors-s-caixa-preta-branca/' },
+  { nome: 'PASTA PREMIUM 3X3 C/ 20 FOLHAS SERIE COLORS S/ CAIXA – ROSA/CINZA', cat: 'Pastas Premium', preco: 214.80, link: 'https://spkidsdistribuidora.com.br/produto/pasta-premium-3x3-c-20-folhas-serie-colors-s-caixa-rosa-cinza/' },
+  { nome: 'PASTA PREMIUM 3X3 SV10.5 BRANCA', cat: 'Pastas Premium', preco: 231.93, link: 'https://spkidsdistribuidora.com.br/produto/pasta-premium-3x3-sv10-5-branca/' },
+
+  // Acessórios
+  { nome: 'CASE MAGNETICO 4MM C/ 1 UNIDADE', cat: 'Acessórios', preco: 6.90, link: 'https://spkidsdistribuidora.com.br/produto/case-magnetico-4mm-c-1-unidade/' },
+  { nome: 'CASE MAGNETICO 7MM C/ 1 UNIDADE', cat: 'Acessórios', preco: 7.90, link: 'https://spkidsdistribuidora.com.br/produto/case-magnetico-7mm-c-1-unidade/' },
+  { nome: 'ESTOJO DE ACRILICO C/10 UNIDADES', cat: 'Acessórios', preco: 46.90, link: 'https://spkidsdistribuidora.com.br/produto/estojo-de-acrilico-c-10-unidades/' },
+  { nome: 'FOLHAS PARA PASTA CARDS 3X3 BRANCA C/10 UNIDADES', cat: 'Acessórios', preco: 21.68, link: 'https://spkidsdistribuidora.com.br/produto/folhas-para-pasta-cards-3x3-branca-c-10-unidades/' },
+  { nome: 'FOLHAS PARA PASTA CARDS 3X3 PRETO C/10 UNIDADES', cat: 'Acessórios', preco: 21.68, link: 'https://spkidsdistribuidora.com.br/produto/folhas-para-pasta-cards-3x3-preto-c-10-unidades/' },
+  { nome: 'SLEEVE SABORES AMARELO C / 60 UNIDADES', cat: 'Acessórios', preco: 21.90, link: 'https://spkidsdistribuidora.com.br/produto/sleeve-sabores-amarelo-c-60-unidades/' },
+  { nome: 'SLEEVE SABORES BRANCO C / 60 UNIDADES', cat: 'Acessórios', preco: 21.90, link: 'https://spkidsdistribuidora.com.br/produto/sleeve-sabores-branco-c-60-unidades/' },
+  { nome: 'SLEEVE SABORES PRETO C / 60 UNIDADES', cat: 'Acessórios', preco: 21.90, link: 'https://spkidsdistribuidora.com.br/produto/sleeve-sabores-preto-c-60-unidades/' },
+  { nome: 'SLEEVE SABORES ROSA C / 60 UNIDADES', cat: 'Acessórios', preco: 21.90, link: 'https://spkidsdistribuidora.com.br/produto/sleeve-sabores-rosa-c-60-unidades/' },
+  { nome: 'SLEEVE SHIELD AZUL C / 50 UNIDADES', cat: 'Acessórios', preco: 14.90, link: 'https://spkidsdistribuidora.com.br/produto/sleeve-shield-azul-c-50-unidades/' },
+  { nome: 'SLEEVE SHIELD ROXO C / 50 UNIDADES', cat: 'Acessórios', preco: 14.90, link: 'https://spkidsdistribuidora.com.br/produto/sleeve-shield-roxo-c-50-unidades/' },
+  { nome: 'SLEEVE SHIELD VERDE C / 50 UNIDADES', cat: 'Acessórios', preco: 14.90, link: 'https://spkidsdistribuidora.com.br/produto/sleeve-shield-verde-c-50-unidades/' },
+  { nome: 'SLEEVE SHIELD VERMELHO C / 50 UNIDADES', cat: 'Acessórios', preco: 14.90, link: 'https://spkidsdistribuidora.com.br/produto/sleeve-shield-vermelho-c-50-unidades/' },
+  { nome: 'TOPLOADER C/ 10 UNIDADES', cat: 'Acessórios', preco: 11.90, link: 'https://spkidsdistribuidora.com.br/produto/toploader-c-10-unidades/' },
+  { nome: 'TOPLOADER C/ 25 UNIDADES BRA', cat: 'Acessórios', preco: 28.90, link: 'https://spkidsdistribuidora.com.br/produto/toploader-c-25-unidades-bra/' },
+
+  // Jogos
+  { nome: 'CARTAS P/JOGAR 139 CARTUCHO UNITARIO', cat: 'Jogos', preco: 188.88, link: 'https://spkidsdistribuidora.com.br/produto/cartas-p-jogar-139-cartucho-unitario/' },
+  { nome: 'CORRIDA MAGICA – MICKEY', cat: 'Jogos', preco: 271.44, link: 'https://spkidsdistribuidora.com.br/produto/corrida-magica-mickey/' },
+  { nome: 'EU VI! CLASSICOS DISNEY', cat: 'Jogos', preco: 212.38, link: 'https://spkidsdistribuidora.com.br/produto/eu-vi-classicos-disney/' },
+  { nome: 'EU VI! – TURMA DA MONICA', cat: 'Jogos', preco: 212.38, link: 'https://spkidsdistribuidora.com.br/produto/eu-vi-turma-da-monica/' },
+  { nome: 'JOGO DE TABULEIRO – PERGUNTADOS', cat: 'Jogos', preco: 259.64, link: 'https://spkidsdistribuidora.com.br/produto/jogo-de-tabuleiro-perguntados/' },
+];
+
+// ─────────────────────────────────────────────────────────────
+// SPKIDS — RENDER
+// ─────────────────────────────────────────────────────────────
+let spkidsBusca = '';
+
+function cardSpkidsHtml(p) {
+  return `
+    <div class="card-outros">
+      <div class="card-outros-topo">
+        <div class="card-outros-nome">${p.nome}</div>
+        <span class="card-outros-cat">${p.cat}</span>
+      </div>
+      <div class="card-outros-precos">
+        <div class="preco-bloco">
+          <div class="preco-bloco-label">Custo</div>
+          <div class="preco-bloco-val">${R$(p.preco)}</div>
+        </div>
+      </div>
+      ${p.link ? `<div class="card-outros-obs"><a href="${p.link}" target="_blank" rel="noopener">Ver no site SPKids →</a></div>` : ''}
+    </div>`;
+}
+
+function renderSpkids() {
+  const grid     = document.getElementById('grid-spkids');
+  const vazio    = document.getElementById('vazio-spkids');
+  const contagem = document.getElementById('contagem-spkids');
+  const termo    = spkidsBusca.toLowerCase();
+
+  const filtrados = SPKIDS.filter(p =>
+    !termo || p.nome.toLowerCase().includes(termo) || p.cat.toLowerCase().includes(termo)
+  );
+
+  if (!filtrados.length) {
+    grid.innerHTML = '';
+    vazio.classList.remove('hidden');
+    contagem.textContent = '';
+    return;
+  }
+  vazio.classList.add('hidden');
+  contagem.textContent = `${filtrados.length} produto${filtrados.length !== 1 ? 's' : ''}`;
+  grid.innerHTML = filtrados.map(cardSpkidsHtml).join('');
+}
+
+function initSpkids() {
+  const input    = document.getElementById('busca-spkids');
+  const clearBtn = document.getElementById('clear-busca-spkids');
+  input.addEventListener('input', () => {
+    spkidsBusca = input.value;
+    clearBtn.classList.toggle('hidden', !spkidsBusca);
+    renderSpkids();
+  });
+  clearBtn.addEventListener('click', () => {
+    input.value = '';
+    spkidsBusca = '';
+    clearBtn.classList.add('hidden');
+    input.focus();
+    renderSpkids();
+  });
+}
+
+// ─────────────────────────────────────────────────────────────
 // COPAG — DADOS
 // ─────────────────────────────────────────────────────────────
 const COPAG = [
@@ -845,6 +1036,7 @@ const MARCAS = {
   depile:     { titulo: 'Depile Plus', sub: 'Cosméticos'             },
   copag:      { titulo: 'Copag',       sub: 'Cards e Jogos'          },
   panini:     { titulo: 'Panini',      sub: 'Álbuns e Figurinhas'    },
+  spkids:     { titulo: 'SPKids',      sub: 'Distribuidora'          },
   outros:     { titulo: 'Outros',      sub: 'Produtos'               },
 };
 
@@ -857,6 +1049,7 @@ function initAbas() {
     depile:     document.getElementById('view-depile'),
     copag:      document.getElementById('view-copag'),
     panini:     document.getElementById('view-panini'),
+    spkids:     document.getElementById('view-spkids'),
     outros:     document.getElementById('view-outros'),
   };
   const headers = {
@@ -865,6 +1058,7 @@ function initAbas() {
     depile:     document.getElementById('header-depile'),
     copag:      document.getElementById('header-copag'),
     panini:     document.getElementById('header-panini'),
+    spkids:     document.getElementById('header-spkids'),
     outros:     document.getElementById('header-outros'),
   };
 
@@ -919,6 +1113,8 @@ async function init() {
   initCopag();
   renderPanini();
   initPanini();
+  renderSpkids();
+  initSpkids();
   renderOutros();
   initOutros();
   renderContatos();
