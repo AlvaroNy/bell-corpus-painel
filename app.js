@@ -652,7 +652,8 @@ const SPKIDS = [
 // ─────────────────────────────────────────────────────────────
 // SPKIDS — RENDER
 // ─────────────────────────────────────────────────────────────
-let spkidsBusca = '';
+let spkidsFiltro = 'todas';
+let spkidsBusca  = '';
 
 function cardSpkidsHtml(p) {
   return `
@@ -678,7 +679,8 @@ function renderSpkids() {
   const termo    = spkidsBusca.toLowerCase();
 
   const filtrados = SPKIDS.filter(p =>
-    !termo || p.nome.toLowerCase().includes(termo) || p.cat.toLowerCase().includes(termo)
+    (spkidsFiltro === 'todas' || p.cat === spkidsFiltro) &&
+    (!termo || p.nome.toLowerCase().includes(termo) || p.cat.toLowerCase().includes(termo))
   );
 
   if (!filtrados.length) {
@@ -693,6 +695,15 @@ function renderSpkids() {
 }
 
 function initSpkids() {
+  document.getElementById('filtros-spkids').querySelectorAll('.cat-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.getElementById('filtros-spkids').querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      spkidsFiltro = btn.dataset.cat;
+      renderSpkids();
+    });
+  });
+
   const input    = document.getElementById('busca-spkids');
   const clearBtn = document.getElementById('clear-busca-spkids');
   input.addEventListener('input', () => {
