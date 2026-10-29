@@ -677,6 +677,25 @@ main { padding: 14px 14px 0; }
   display: flex;
   flex-direction: column;
   gap: 6px;
+  overflow: hidden;
+}
+.card-cmd--img {
+  padding: 0;
+}
+.card-cmd--img .card-cmd-cmd,
+.card-cmd--img .card-cmd-desc,
+.card-cmd--img .card-cmd-cat {
+  padding-left: 14px;
+  padding-right: 14px;
+}
+.card-cmd--img .card-cmd-cmd { padding-top: 12px; }
+.card-cmd--img .card-cmd-cat { padding-bottom: 12px; }
+.card-cmd-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 16px 16px 0 0;
+  display: block;
 }
 
 .card-cmd-cmd {
