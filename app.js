@@ -1041,7 +1041,120 @@ function renderContatos() {
 // ─────────────────────────────────────────────────────────────
 // ABAS DE MARCA
 // ─────────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────
+// CHATGPT — DADOS
+// ─────────────────────────────────────────────────────────────
+const CHATGPT = [
+  // Movimentos e Enquadramentos de Câmera
+  { cmd: '/flythrough',    desc: 'Movimento de voo através de um cenário.',                      cat: 'camera' },
+  { cmd: '/dollyin',       desc: 'Aproximação suave de câmera.',                                 cat: 'camera' },
+  { cmd: '/dollyout',      desc: 'Afastamento suave de câmera.',                                 cat: 'camera' },
+  { cmd: '/pan',           desc: 'Movimento horizontal (panorâmica).',                           cat: 'camera' },
+  { cmd: '/tilt',          desc: 'Movimento vertical (para cima/baixo).',                        cat: 'camera' },
+  { cmd: '/zoom',          desc: 'Aproximação ou afastamento óptico.',                           cat: 'camera' },
+  { cmd: '/establishing',  desc: 'Plano aberto para estabelecer o local da cena.',               cat: 'camera' },
+  { cmd: '/closeup',       desc: 'Plano fechado em detalhes ou rostos.',                         cat: 'camera' },
+  { cmd: '/wideangle',     desc: 'Lente grande angular (amplo campo de visão).',                 cat: 'camera' },
+  { cmd: '/pov',           desc: 'Visão em primeira pessoa.',                                    cat: 'camera' },
+  { cmd: '/overhead',      desc: 'Visão reta de cima para baixo (zenital).',                     cat: 'camera' },
+  { cmd: '/aerial',        desc: 'Vista aérea geral.',                                           cat: 'camera' },
+  { cmd: '/DroneView',     desc: 'Visão simulando voo de drone.',                                cat: 'camera' },
+  // Tempo, Transformação e Clima
+  { cmd: '/timelapse',     desc: 'Tempo acelerado com câmera estática.',                         cat: 'tempo' },
+  { cmd: '/hyperlapse',    desc: 'Tempo acelerado com câmera em movimento.',                     cat: 'tempo' },
+  { cmd: '/slowmotion',    desc: 'Câmera lenta.',                                                cat: 'tempo' },
+  { cmd: '/daytonight',    desc: 'Transição fluida de dia para noite.',                          cat: 'tempo' },
+  { cmd: '/seasonchange',  desc: 'Transição visual entre estações do ano.',                      cat: 'tempo' },
+  { cmd: '/GoldenHour',    desc: 'Luz quente e suave de pôr/nascer do sol.',                    cat: 'tempo' },
+  { cmd: '/RainyNight',    desc: 'Estética de noite chuvosa.',                                   cat: 'tempo' },
+  { cmd: '/SnowWorld',     desc: 'Ambiente com neve.',                                           cat: 'tempo' },
+  { cmd: '/Fog',           desc: 'Ambiente com neblina/névoa.',                                  cat: 'tempo' },
+  { cmd: '/Autumn',        desc: 'Cenário com cores e folhas de outono.',                        cat: 'tempo' },
+  // Estilos Visuais e Retratos
+  { cmd: '/StudioPro',     desc: 'Iluminação profissional de estúdio.',                          cat: 'visual' },
+  { cmd: '/MovieScene',    desc: 'Estética de filme de cinema.',                                 cat: 'visual' },
+  { cmd: '/NeonCity',      desc: 'Visual urbano noturno e cyberpunk.',                           cat: 'visual' },
+  { cmd: '/Magazine',      desc: 'Estilo editorial/capa de revista de moda.',                    cat: 'visual' },
+  { cmd: '/OldMoney',      desc: 'Estética clássica, tradicional e elegante.',                   cat: 'visual' },
+  { cmd: '/VintageFilm',   desc: 'Textura e cores de filme analógico antigo.',                   cat: 'visual' },
+  { cmd: '/LowAngleHero',  desc: 'Câmera baixa apontando para cima (traz imponência).',          cat: 'visual' },
+  { cmd: '/DoubleExposure',desc: 'Efeito de sobreposição de duas imagens.',                      cat: 'visual' },
+  { cmd: '/ProfHeadshot',  desc: 'Retrato corporativo padronizado.',                             cat: 'visual' },
+  { cmd: '/LuxuryAd',      desc: 'Estética premium para comerciais de luxo.',                    cat: 'visual' },
+  { cmd: '/MiniWorld',     desc: 'Efeito miniatura (tilt-shift/diorama).',                       cat: 'visual' },
+  // Exibição de Produtos e Efeitos Específicos
+  { cmd: '/teardown',      desc: 'Desmontagem visual de um equipamento.',                        cat: 'produto' },
+  { cmd: '/explodedview',  desc: 'Vista explodida mostrando as peças separadas no ar.',          cat: 'produto' },
+  { cmd: '/reveal',        desc: 'Animação de revelação ou surgimento de um objeto.',            cat: 'produto' },
+];
+
+const CAT_LABEL_CHATGPT = { camera: 'Câmera', tempo: 'Clima', visual: 'Visual', produto: 'Produto' };
+
+// ─────────────────────────────────────────────────────────────
+// CHATGPT — RENDER
+// ─────────────────────────────────────────────────────────────
+let chatgptFiltro = 'todas';
+let chatgptBusca  = '';
+
+function cardChatgptHtml(p) {
+  return `
+    <div class="card-cmd">
+      <div class="card-cmd-cmd">${p.cmd}</div>
+      <div class="card-cmd-desc">${p.desc}</div>
+      <span class="card-cmd-cat">${CAT_LABEL_CHATGPT[p.cat]}</span>
+    </div>`;
+}
+
+function renderChatgpt() {
+  const grid     = document.getElementById('grid-chatgpt');
+  const vazio    = document.getElementById('vazio-chatgpt');
+  const contagem = document.getElementById('contagem-chatgpt');
+  const termo    = chatgptBusca.toLowerCase();
+
+  const filtrados = CHATGPT.filter(p =>
+    (chatgptFiltro === 'todas' || p.cat === chatgptFiltro) &&
+    (!termo || p.cmd.toLowerCase().includes(termo) || p.desc.toLowerCase().includes(termo))
+  );
+
+  if (!filtrados.length) {
+    grid.innerHTML = '';
+    vazio.classList.remove('hidden');
+    contagem.textContent = '';
+    return;
+  }
+  vazio.classList.add('hidden');
+  contagem.textContent = `${filtrados.length} comando${filtrados.length !== 1 ? 's' : ''}`;
+  grid.innerHTML = filtrados.map(cardChatgptHtml).join('');
+}
+
+function initChatgpt() {
+  document.getElementById('filtros-chatgpt').querySelectorAll('.cat-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.getElementById('filtros-chatgpt').querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      chatgptFiltro = btn.dataset.cat;
+      renderChatgpt();
+    });
+  });
+
+  const input    = document.getElementById('busca-chatgpt');
+  const clearBtn = document.getElementById('clear-busca-chatgpt');
+  input.addEventListener('input', () => {
+    chatgptBusca = input.value;
+    clearBtn.classList.toggle('hidden', !chatgptBusca);
+    renderChatgpt();
+  });
+  clearBtn.addEventListener('click', () => {
+    input.value = '';
+    chatgptBusca = '';
+    clearBtn.classList.add('hidden');
+    input.focus();
+    renderChatgpt();
+  });
+}
+
 const MARCAS = {
+  chatgpt:    { titulo: 'ChatGPT',     sub: 'Comandos de IA'         },
   bellcorpus: { titulo: 'Bell Corpus', sub: 'Cosméticos Atacadista' },
   glamour:    { titulo: 'Glamour',     sub: 'Distribuidora'          },
   depile:     { titulo: 'Depile Plus', sub: 'Cosméticos'             },
@@ -1055,6 +1168,7 @@ function initAbas() {
   const abas = document.querySelectorAll('.aba-btn');
 
   const views   = {
+    chatgpt:    document.getElementById('view-chatgpt'),
     bellcorpus: document.getElementById('view-bellcorpus'),
     glamour:    document.getElementById('view-glamour'),
     depile:     document.getElementById('view-depile'),
@@ -1064,6 +1178,7 @@ function initAbas() {
     outros:     document.getElementById('view-outros'),
   };
   const headers = {
+    chatgpt:    document.getElementById('header-chatgpt'),
     bellcorpus: document.getElementById('header-bellcorpus'),
     glamour:    document.getElementById('header-glamour'),
     depile:     document.getElementById('header-depile'),
@@ -1126,6 +1241,8 @@ async function init() {
   initPanini();
   renderSpkids();
   initSpkids();
+  renderChatgpt();
+  initChatgpt();
   renderOutros();
   initOutros();
   renderContatos();
