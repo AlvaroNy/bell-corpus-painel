@@ -672,31 +672,38 @@ main { padding: 14px 14px 0; }
 .card-cmd {
   background: var(--cinza-card);
   border-radius: 16px;
-  padding: 14px 14px 12px;
   box-shadow: var(--sombra);
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 0;
   overflow: hidden;
 }
-.card-cmd--img {
-  padding: 0;
+.card-cmd-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 14px 12px;
 }
-.card-cmd--img .card-cmd-cmd,
-.card-cmd--img .card-cmd-desc,
-.card-cmd--img .card-cmd-cat {
-  padding-left: 14px;
-  padding-right: 14px;
+
+/* Tira de imagens (1–4 fotos) */
+.card-cmd-imgs {
+  display: flex;
+  gap: 2px;
+  border-radius: 16px 16px 0 0;
+  overflow: hidden;
+  flex-shrink: 0;
 }
-.card-cmd--img .card-cmd-cmd { padding-top: 12px; }
-.card-cmd--img .card-cmd-cat { padding-bottom: 12px; }
-.card-cmd-img {
-  width: 100%;
+.card-cmd-thumb {
+  flex: 1;
+  min-width: 0;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  border-radius: 16px 16px 0 0;
+  cursor: pointer;
+  transition: opacity 0.15s;
   display: block;
 }
+.card-cmd-imgs[data-count="1"] .card-cmd-thumb { aspect-ratio: 4 / 3; }
+.card-cmd-thumb:active { opacity: 0.75; }
 
 .card-cmd-cmd {
   font-size: 1rem;
@@ -724,6 +731,43 @@ main { padding: 14px 14px 0; }
   background: var(--verde-claro);
   padding: 2px 8px;
   border-radius: 8px;
+}
+
+/* Lightbox */
+.cmd-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.cmd-lightbox.hidden { display: none; }
+.cmd-lightbox-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: #fff;
+  font-size: 1.3rem;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+}
+#cmd-lightbox-img {
+  max-width: 100%;
+  max-height: 88vh;
+  border-radius: 12px;
+  object-fit: contain;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.6);
 }
 
 /* ── ESTADOS ─────────────────────────────────────── */
