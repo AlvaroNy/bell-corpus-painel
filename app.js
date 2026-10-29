@@ -903,7 +903,14 @@ const OUTROS = [
       { nome: 'Custo', preco: 3.15 },
     ],
   },
-  { nome: 'Sleve Normal',    cat: 'Acessórios', fornecedores: [{ nome: 'Preço', preco:  7.30 }] },
+  {
+    nome: 'Sleve Normal', cat: 'Acessórios',
+    fornecedores: [
+      { nome: 'Unitário',  preco: 7.30 },
+      { nome: '100+ un',   preco: 6.90 },
+      { nome: '1000+ un',  preco: 6.50 },
+    ]
+  },
   { nome: 'Top Sleve',       cat: 'Acessórios', fornecedores: [{ nome: 'Preço', preco:  7.80 }] },
   { nome: 'Sleve Magnético', cat: 'Acessórios', fornecedores: [{ nome: 'Preço', preco: 14.00 }] },
   { nome: 'Fita Larga 500m 08/09', cat: 'Embalagem', fornecedores: [{ nome: 'Preço',   preco: 13.00 }] },
