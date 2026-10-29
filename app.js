@@ -853,6 +853,12 @@ const OUTROS = [
       { nome: 'Fred',    preco: 32.00 },
     ]
   },
+  {
+    nome: 'Lençol King Liso', cat: 'Lençóis',
+    fornecedores: [
+      { nome: 'Custo', preco: 42.00 },
+    ]
+  },
   { nome: 'Fronha',             preco: 33.60, cat: 'Lençóis', fornecedores: [{ nome: 'Eduardo', preco: 33.60 }] },
   { nome: 'Colcha de Retalhos', preco: 60.00, cat: 'Colchas', fornecedores: [{ nome: 'Eduardo', preco: 60.00 }] },
   {
