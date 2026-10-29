@@ -1084,7 +1084,7 @@ const CHATGPT = [
   { cmd: '/MiniWorld',     desc: 'Efeito miniatura (tilt-shift/diorama).',                       cat: 'visual' },
   // Exibição de Produtos e Efeitos Específicos
   { cmd: '/teardown',      desc: 'Desmontagem visual de um equipamento.',                        cat: 'produto' },
-  { cmd: '/explodedview',  desc: 'Vista explodida mostrando as peças separadas no ar.',          cat: 'produto', img: 'cmd-explodedview.webp' },
+  { cmd: '/explodedview',  desc: 'Vista explodida mostrando as peças separadas no ar.',          cat: 'produto', imgs: ['cmd-explodedview.webp', 'cmd-explodedview-2.webp'] },
   { cmd: '/reveal',        desc: 'Animação de revelação ou surgimento de um objeto.',            cat: 'produto' },
 ];
 
@@ -1097,12 +1097,19 @@ let chatgptFiltro = 'todas';
 let chatgptBusca  = '';
 
 function cardChatgptHtml(p) {
+  const imgs = p.imgs || (p.img ? [p.img] : []);
+  const strip = imgs.length ? `
+    <div class="card-cmd-imgs" data-count="${imgs.length}">
+      ${imgs.map((src, i) => `<img class="card-cmd-thumb" src="${src}" alt="${p.cmd} ${i + 1}" loading="lazy" data-src="${src}">`).join('')}
+    </div>` : '';
   return `
-    <div class="card-cmd${p.img ? ' card-cmd--img' : ''}">
-      ${p.img ? `<img class="card-cmd-img" src="${p.img}" alt="${p.cmd}" loading="lazy">` : ''}
-      <div class="card-cmd-cmd">${p.cmd}</div>
-      <div class="card-cmd-desc">${p.desc}</div>
-      <span class="card-cmd-cat">${CAT_LABEL_CHATGPT[p.cat]}</span>
+    <div class="card-cmd${imgs.length ? ' card-cmd--img' : ''}">
+      ${strip}
+      <div class="card-cmd-body">
+        <div class="card-cmd-cmd">${p.cmd}</div>
+        <div class="card-cmd-desc">${p.desc}</div>
+        <span class="card-cmd-cat">${CAT_LABEL_CHATGPT[p.cat]}</span>
+      </div>
     </div>`;
 }
 
@@ -1151,6 +1158,27 @@ function initChatgpt() {
     clearBtn.classList.add('hidden');
     input.focus();
     renderChatgpt();
+  });
+
+  // Lightbox
+  const lb = document.createElement('div');
+  lb.id = 'cmd-lightbox';
+  lb.className = 'cmd-lightbox hidden';
+  lb.innerHTML = `<button class="cmd-lightbox-close" aria-label="Fechar">✕</button><img id="cmd-lightbox-img" src="" alt="">`;
+  document.body.appendChild(lb);
+
+  const lbImg = lb.querySelector('#cmd-lightbox-img');
+  const closeLb = () => { lb.classList.add('hidden'); lbImg.src = ''; };
+
+  lb.addEventListener('click', e => { if (e.target === lb || e.target.classList.contains('cmd-lightbox-close')) closeLb(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !lb.classList.contains('hidden')) closeLb(); });
+
+  document.getElementById('grid-chatgpt').addEventListener('click', e => {
+    const thumb = e.target.closest('.card-cmd-thumb');
+    if (!thumb) return;
+    lbImg.src = thumb.dataset.src;
+    lbImg.alt = thumb.alt;
+    lb.classList.remove('hidden');
   });
 }
 
