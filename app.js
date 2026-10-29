@@ -1081,7 +1081,7 @@ const CHATGPT = [
   { cmd: '/MiniWorld',     desc: 'Efeito miniatura (tilt-shift/diorama).',                       cat: 'visual' },
   // Exibição de Produtos e Efeitos Específicos
   { cmd: '/teardown',      desc: 'Desmontagem visual de um equipamento.',                        cat: 'produto' },
-  { cmd: '/explodedview',  desc: 'Vista explodida mostrando as peças separadas no ar.',          cat: 'produto' },
+  { cmd: '/explodedview',  desc: 'Vista explodida mostrando as peças separadas no ar.',          cat: 'produto', img: 'cmd-explodedview.webp' },
   { cmd: '/reveal',        desc: 'Animação de revelação ou surgimento de um objeto.',            cat: 'produto' },
 ];
 
@@ -1095,7 +1095,8 @@ let chatgptBusca  = '';
 
 function cardChatgptHtml(p) {
   return `
-    <div class="card-cmd">
+    <div class="card-cmd${p.img ? ' card-cmd--img' : ''}">
+      ${p.img ? `<img class="card-cmd-img" src="${p.img}" alt="${p.cmd}" loading="lazy">` : ''}
       <div class="card-cmd-cmd">${p.cmd}</div>
       <div class="card-cmd-desc">${p.desc}</div>
       <span class="card-cmd-cat">${CAT_LABEL_CHATGPT[p.cat]}</span>
