@@ -110,7 +110,7 @@ h1 {
   pointer-events: none;
 }
 
-#busca, #busca-cat, #busca-depile, #busca-panini, #busca-copag, #busca-spkids, #busca-outros {
+#busca, #busca-cat, #busca-depile, #busca-panini, #busca-copag, #busca-spkids, #busca-chatgpt, #busca-outros {
   width: 100%;
   padding: 11px 40px 11px 38px;
   border-radius: 26px;
@@ -123,13 +123,14 @@ h1 {
   -webkit-tap-highlight-color: transparent;
 }
 
-#busca::placeholder, #busca-cat::placeholder, #busca-depile::placeholder, #busca-panini::placeholder, #busca-copag::placeholder, #busca-spkids::placeholder, #busca-outros::placeholder { color: #aaa; }
+#busca::placeholder, #busca-cat::placeholder, #busca-depile::placeholder, #busca-panini::placeholder, #busca-copag::placeholder, #busca-spkids::placeholder, #busca-chatgpt::placeholder, #busca-outros::placeholder { color: #aaa; }
 #busca::-webkit-search-cancel-button,
 #busca-cat::-webkit-search-cancel-button,
 #busca-depile::-webkit-search-cancel-button,
 #busca-panini::-webkit-search-cancel-button,
 #busca-copag::-webkit-search-cancel-button,
 #busca-spkids::-webkit-search-cancel-button,
+#busca-chatgpt::-webkit-search-cancel-button,
 #busca-outros::-webkit-search-cancel-button { display: none; }
 
 .clear-btn {
@@ -665,6 +666,45 @@ main { padding: 14px 14px 0; }
   color: var(--texto-suave);
   border-top: 1px solid var(--cinza-borda);
   padding-top: 8px;
+}
+
+/* ── CARD CHATGPT ────────────────────────────────── */
+.card-cmd {
+  background: var(--cinza-card);
+  border-radius: 16px;
+  padding: 14px 14px 12px;
+  box-shadow: var(--sombra);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card-cmd-cmd {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--verde);
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: 0.2px;
+}
+
+.card-cmd-desc {
+  font-size: 0.85rem;
+  color: var(--texto-medio);
+  line-height: 1.45;
+}
+
+.card-cmd-cat {
+  display: inline-block;
+  margin-top: 4px;
+  align-self: flex-start;
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--verde-dark);
+  background: var(--verde-claro);
+  padding: 2px 8px;
+  border-radius: 8px;
 }
 
 /* ── ESTADOS ─────────────────────────────────────── */
