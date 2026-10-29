@@ -27,6 +27,7 @@
 
     <!-- Abas de marca -->
     <div class="nav-abas">
+      <button class="aba-btn" data-aba="chatgpt">ChatGPT</button>
       <button class="aba-btn active" data-aba="bellcorpus">Bell Corpus</button>
       <button class="aba-btn" data-aba="glamour">Glamour</button>
       <button class="aba-btn" data-aba="depile">Depile Plus</button>
@@ -146,6 +147,26 @@
       </div>
     </div>
 
+    <!-- Controles ChatGPT -->
+    <div id="header-chatgpt" class="hidden">
+      <div class="search-wrap">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input type="search" id="busca-chatgpt" placeholder="Buscar comando..." autocomplete="off" autocorrect="off" spellcheck="false">
+        <button class="clear-btn hidden" id="clear-busca-chatgpt" aria-label="Limpar">✕</button>
+      </div>
+      <div class="categorias-wrap">
+        <div class="categorias" id="filtros-chatgpt">
+          <button class="cat-btn active" data-cat="todas">Todas</button>
+          <button class="cat-btn" data-cat="camera">Câmera</button>
+          <button class="cat-btn" data-cat="tempo">Clima</button>
+          <button class="cat-btn" data-cat="visual">Visual</button>
+          <button class="cat-btn" data-cat="produto">Produto</button>
+        </div>
+      </div>
+    </div>
+
     <!-- Controles Outros (sem filtro, só busca) -->
     <div id="header-outros" class="hidden">
       <div class="search-wrap">
@@ -203,6 +224,13 @@
     <div id="contagem-spkids" class="contagem"></div>
     <div id="grid-spkids" class="grid"></div>
     <div id="vazio-spkids" class="estado-msg hidden">Nenhum produto encontrado 🔍</div>
+  </main>
+
+  <!-- VIEW CHATGPT -->
+  <main id="view-chatgpt" class="hidden">
+    <div id="contagem-chatgpt" class="contagem"></div>
+    <div id="grid-chatgpt" class="grid"></div>
+    <div id="vazio-chatgpt" class="estado-msg hidden">Nenhum comando encontrado 🔍</div>
   </main>
 
   <!-- VIEW OUTROS -->
