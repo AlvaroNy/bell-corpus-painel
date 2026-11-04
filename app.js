@@ -1095,7 +1095,7 @@ const CHATGPT = [
   { cmd: '/ProfHeadshot',  desc: 'Retrato corporativo padronizado.',                             cat: 'visual' },
   { cmd: '/LuxuryAd',      desc: 'Estética premium para comerciais de luxo.',                    cat: 'visual' },
   { cmd: '/MiniWorld',     desc: 'Efeito miniatura (tilt-shift/diorama).',                       cat: 'visual' },
-  { cmd: '/ugc',           desc: 'Estilo UGC — aparência autêntica de conteúdo gerado por usuário, orgânico e real.', cat: 'visual', imgs: ['cmd-ugc-1.webp', 'cmd-ugc-2.webp'] },
+  { cmd: '/ugc',           desc: 'Estilo UGC — aparência autêntica de conteúdo gerado por usuário, orgânico e real.', cat: 'visual', imgs: ['cmd-ugc-1.webp', 'cmd-ugc-2.webp', 'cmd-ugc-3.webp', 'cmd-ugc-4.webp'] },
   { cmd: '/adshot',        desc: 'Foto publicitária de produto com cenário temático e iluminação profissional.',        cat: 'produto', imgs: ['cmd-adshot-1.webp', 'cmd-adshot-2.webp'] },
   // Exibição de Produtos e Efeitos Específicos
   { cmd: '/teardown',      desc: 'Desmontagem visual de um equipamento.',                        cat: 'produto' },
