@@ -930,6 +930,18 @@ const OUTROS = [
       { nome: 'Venda',    preco: 35.90 },
     ],
   },
+  {
+    nome: 'Potes de Trufas', cat: 'Doces',
+    fornecedores: [
+      { nome: 'Unidade', preco: 16.30 },
+    ],
+    obs: 'Fornecedor: Ki Kakau – SP · Marcela (14) 99816-6861',
+  },
+  {
+    nome: 'Trufas Display Sortido', cat: 'Doces',
+    fornecedores: [],
+    obs: 'Fornecedor: Ki Kakau – SP · Marcela (14) 99816-6861',
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────
