@@ -34,6 +34,7 @@
       <button class="aba-btn" data-aba="panini">Panini</button>
       <button class="aba-btn" data-aba="copag">Copag</button>
       <button class="aba-btn" data-aba="spkids">SPKids</button>
+      <button class="aba-btn" data-aba="embare">Embare</button>
       <button class="aba-btn" data-aba="outros">Outros</button>
     </div>
 
@@ -167,6 +168,17 @@
       </div>
     </div>
 
+    <!-- Controles Embare -->
+    <div id="header-embare" class="hidden">
+      <div class="search-wrap">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input type="search" id="busca-embare" placeholder="Buscar produto..." autocomplete="off" autocorrect="off" spellcheck="false">
+        <button class="clear-btn hidden" id="clear-busca-embare" aria-label="Limpar">✕</button>
+      </div>
+    </div>
+
     <!-- Controles Outros (sem filtro, só busca) -->
     <div id="header-outros" class="hidden">
       <div class="search-wrap">
@@ -231,6 +243,13 @@
     <div id="contagem-chatgpt" class="contagem"></div>
     <div id="grid-chatgpt" class="grid"></div>
     <div id="vazio-chatgpt" class="estado-msg hidden">Nenhum comando encontrado 🔍</div>
+  </main>
+
+  <!-- VIEW EMBARE -->
+  <main id="view-embare" class="hidden">
+    <div id="contagem-embare" class="contagem"></div>
+    <div id="grid-embare" class="grid"></div>
+    <div id="vazio-embare" class="estado-msg hidden">Nenhum produto encontrado 🔍</div>
   </main>
 
   <!-- VIEW OUTROS -->
