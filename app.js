@@ -931,56 +931,6 @@ const OUTROS = [
     ],
   },
   {
-    nome: 'Caramelos Leite Condensado 150g', cat: 'Doces',
-    fornecedores: [
-      { nome: 'Sac s/ imp.', preco:  6.12 },
-      { nome: 'Sac c/ imp.', preco:  6.32 },
-      { nome: 'Cx s/ imp.',  preco: 244.80 },
-      { nome: 'Cx c/ imp.',  preco: 252.76 },
-    ],
-    obs: 'Fornecedor: Embare / Elma – (37) 9954-8241',
-  },
-  {
-    nome: 'Caramelos Leite 150g', cat: 'Doces',
-    fornecedores: [
-      { nome: 'Sac s/ imp.', preco:  6.11 },
-      { nome: 'Sac c/ imp.', preco:  6.31 },
-      { nome: 'Cx s/ imp.',  preco: 244.40 },
-      { nome: 'Cx c/ imp.',  preco: 252.34 },
-    ],
-    obs: 'Fornecedor: Embare / Elma – (37) 9954-8241',
-  },
-  {
-    nome: 'Caramelo Meio a Meio · Leite e Chocolate 150g', cat: 'Doces',
-    fornecedores: [
-      { nome: 'Sac s/ imp.', preco:  6.63 },
-      { nome: 'Sac c/ imp.', preco:  7.40 },
-      { nome: 'Cx s/ imp.',  preco: 265.20 },
-      { nome: 'Cx c/ imp.',  preco: 296.00 },
-    ],
-    obs: 'Fornecedor: Embare / Elma – (37) 9954-8241',
-  },
-  {
-    nome: 'Caramelos Recheados Sortidos 1,5Kg', cat: 'Doces',
-    fornecedores: [
-      { nome: 'Un s/ imp.',  preco:  55.38 },
-      { nome: 'Un c/ imp.',  preco:  61.81 },
-      { nome: 'Cx s/ imp.',  preco: 332.28 },
-      { nome: 'Cx c/ imp.',  preco: 370.87 },
-    ],
-    obs: 'Fornecedor: Embare / Elma – (37) 9954-8241',
-  },
-  {
-    nome: 'Caramelos Recheados Sortidos 600g', cat: 'Doces',
-    fornecedores: [
-      { nome: 'Sac s/ imp.', preco:  19.29 },
-      { nome: 'Sac c/ imp.', preco:  21.53 },
-      { nome: 'Cx s/ imp.',  preco: 270.06 },
-      { nome: 'Cx c/ imp.',  preco: 301.42 },
-    ],
-    obs: 'Fornecedor: Embare / Elma – (37) 9954-8241',
-  },
-  {
     nome: 'Potes de Trufas', cat: 'Doces',
     fornecedores: [
       { nome: 'Unidade', preco: 16.30 },
@@ -993,6 +943,102 @@ const OUTROS = [
     obs: 'Fornecedor: Ki Kakau – SP · Marcela (14) 99816-6861',
   },
 ];
+
+// ─────────────────────────────────────────────────────────────
+// EMBARE — DADOS
+// ─────────────────────────────────────────────────────────────
+const EMBARE = [
+  {
+    nome: 'Caramelos Leite Condensado 150g', cat: 'Balas',
+    fornecedores: [
+      { nome: 'Sac s/ imp.', preco:  6.12 },
+      { nome: 'Sac c/ imp.', preco:  6.32 },
+      { nome: 'Cx s/ imp.',  preco: 244.80 },
+      { nome: 'Cx c/ imp.',  preco: 252.76 },
+    ],
+  },
+  {
+    nome: 'Caramelos Leite 150g', cat: 'Balas',
+    fornecedores: [
+      { nome: 'Sac s/ imp.', preco:  6.11 },
+      { nome: 'Sac c/ imp.', preco:  6.31 },
+      { nome: 'Cx s/ imp.',  preco: 244.40 },
+      { nome: 'Cx c/ imp.',  preco: 252.34 },
+    ],
+  },
+  {
+    nome: 'Caramelo Meio a Meio · Leite e Chocolate 150g', cat: 'Balas',
+    fornecedores: [
+      { nome: 'Sac s/ imp.', preco:  6.63 },
+      { nome: 'Sac c/ imp.', preco:  7.40 },
+      { nome: 'Cx s/ imp.',  preco: 265.20 },
+      { nome: 'Cx c/ imp.',  preco: 296.00 },
+    ],
+  },
+  {
+    nome: 'Caramelos Recheados Sortidos 1,5Kg', cat: 'Balas',
+    fornecedores: [
+      { nome: 'Un s/ imp.',  preco:  55.38 },
+      { nome: 'Un c/ imp.',  preco:  61.81 },
+      { nome: 'Cx s/ imp.',  preco: 332.28 },
+      { nome: 'Cx c/ imp.',  preco: 370.87 },
+    ],
+  },
+  {
+    nome: 'Caramelos Recheados Sortidos 600g', cat: 'Balas',
+    fornecedores: [
+      { nome: 'Sac s/ imp.', preco:  19.29 },
+      { nome: 'Sac c/ imp.', preco:  21.53 },
+      { nome: 'Cx s/ imp.',  preco: 270.06 },
+      { nome: 'Cx c/ imp.',  preco: 301.42 },
+    ],
+  },
+];
+
+// ─────────────────────────────────────────────────────────────
+// EMBARE — RENDER
+// ─────────────────────────────────────────────────────────────
+let embareBusca = '';
+
+function renderEmbare() {
+  const grid     = document.getElementById('grid-embare');
+  const vazio    = document.getElementById('vazio-embare');
+  const contagem = document.getElementById('contagem-embare');
+  const termo    = embareBusca.toLowerCase();
+
+  const filtrados = EMBARE.filter(p =>
+    !termo || p.nome.toLowerCase().includes(termo) ||
+              p.cat.toLowerCase().includes(termo) ||
+              p.fornecedores.some(f => f.nome.toLowerCase().includes(termo))
+  );
+
+  if (!filtrados.length) {
+    grid.innerHTML = '';
+    vazio.classList.remove('hidden');
+    contagem.textContent = '';
+    return;
+  }
+  vazio.classList.add('hidden');
+  contagem.textContent = `${filtrados.length} produto${filtrados.length !== 1 ? 's' : ''}`;
+  grid.innerHTML = filtrados.map(cardOutrosHtml).join('');
+}
+
+function initEmbare() {
+  const input    = document.getElementById('busca-embare');
+  const clearBtn = document.getElementById('clear-busca-embare');
+  input.addEventListener('input', () => {
+    embareBusca = input.value;
+    clearBtn.classList.toggle('hidden', !embareBusca);
+    renderEmbare();
+  });
+  clearBtn.addEventListener('click', () => {
+    input.value = '';
+    embareBusca = '';
+    clearBtn.classList.add('hidden');
+    input.focus();
+    renderEmbare();
+  });
+}
 
 // ─────────────────────────────────────────────────────────────
 // OUTROS — RENDER
@@ -1267,6 +1313,7 @@ const MARCAS = {
   copag:      { titulo: 'Copag',       sub: 'Cards e Jogos'          },
   panini:     { titulo: 'Panini',      sub: 'Álbuns e Figurinhas'    },
   spkids:     { titulo: 'SPKids',      sub: 'Distribuidora'          },
+  embare:     { titulo: 'Embare',      sub: 'Balas e Caramelos'      },
   outros:     { titulo: 'Outros',      sub: 'Produtos'               },
 };
 
@@ -1281,6 +1328,7 @@ function initAbas() {
     copag:      document.getElementById('view-copag'),
     panini:     document.getElementById('view-panini'),
     spkids:     document.getElementById('view-spkids'),
+    embare:     document.getElementById('view-embare'),
     outros:     document.getElementById('view-outros'),
   };
   const headers = {
@@ -1291,6 +1339,7 @@ function initAbas() {
     copag:      document.getElementById('header-copag'),
     panini:     document.getElementById('header-panini'),
     spkids:     document.getElementById('header-spkids'),
+    embare:     document.getElementById('header-embare'),
     outros:     document.getElementById('header-outros'),
   };
 
@@ -1349,6 +1398,8 @@ async function init() {
   initSpkids();
   renderChatgpt();
   initChatgpt();
+  renderEmbare();
+  initEmbare();
   renderOutros();
   initOutros();
   renderContatos();
